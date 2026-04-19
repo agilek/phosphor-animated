@@ -12,4 +12,4 @@
       50%  { stroke-dashoffset: 0; }
       100% { stroke-dashoffset: 0; }
     }
-  </style><rect width="256" height="256" fill="none"/><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 0s"/></svg>
+  </style><rect width="256" height="256" fill="none"/><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line"/></svg>

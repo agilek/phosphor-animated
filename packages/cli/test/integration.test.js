@@ -27,11 +27,10 @@ test('main: processes nested directory, mirrors structure, writes animated SVGs'
   const star = await readFile(join(outDir, 'star.svg'), 'utf8');
   assert.match(star, /<style>/);
   assert.match(star, /class="draw-line"/);
-  assert.match(star, /style="animation-delay: 0s"/);
 
   const sun = await readFile(join(outDir, 'weather', 'sun.svg'), 'utf8');
-  assert.match(sun, /style="animation-delay: 0s"/);
-  assert.match(sun, /style="animation-delay: 0.3s"/);
+  const sunMatches = sun.match(/class="draw-line"/g);
+  assert.equal(sunMatches.length, 2);
 });
 
 test('main: skips files with existing <style> block', async () => {

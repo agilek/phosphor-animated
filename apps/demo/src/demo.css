@@ -1,0 +1,6 @@
+/* Trigger the library's draw-in animation when the whole tile (button) is
+   hovered, not just the small 48px icon itself. Mirrors the animation used
+   in @agilek/phosphor-animated's styles.css. */
+.icon-tile:hover .phosphor-animated-icon .draw-line {
+  animation: phosphor-draw-in 3s ease-in-out infinite alternate;
+}

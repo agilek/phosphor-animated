@@ -3,12 +3,12 @@ import { Icon, type IconWeights } from '../Icon';
 import type { IconProps } from '../types';
 
 const WEIGHTS: IconWeights = {
-  thin: <><polyline points="64 56 216 128 64 200" strokeWidth="8" className="draw-line" style={{animationDelay:"0s"}}/></>,
-  light: <><polyline points="64 56 216 128 64 200" strokeWidth="12" className="draw-line" style={{animationDelay:"0s"}}/></>,
-  regular: <><polyline points="64 56 216 128 64 200" strokeWidth="16" className="draw-line" style={{animationDelay:"0s"}}/></>,
-  bold: <><polyline points="64 56 216 128 64 200" strokeWidth="24" className="draw-line" style={{animationDelay:"0s"}}/></>,
+  thin: <><polyline points="64 56 216 128 64 200" strokeWidth="8" className="draw-line"/></>,
+  light: <><polyline points="64 56 216 128 64 200" strokeWidth="12" className="draw-line"/></>,
+  regular: <><polyline points="64 56 216 128 64 200" strokeWidth="16" className="draw-line"/></>,
+  bold: <><polyline points="64 56 216 128 64 200" strokeWidth="24" className="draw-line"/></>,
   fill: <><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM187.35,135.26l-104,48a8,8,0,0,1-6.7-14.52L164.91,128,76.65,87.26a8,8,0,1,1,6.7-14.52l104,48a8,8,0,0,1,0,14.52Z" fill="currentColor"/></>,
-  duotone: <><polygon points="64 56 216 128 64 200 64 56" opacity="0.2" fill="currentColor"/><polyline points="64 56 216 128 64 200" strokeWidth="16" className="draw-line" style={{animationDelay:"0s"}}/></>,
+  duotone: <><polygon points="64 56 216 128 64 200 64 56" opacity="0.2" fill="currentColor"/><polyline points="64 56 216 128 64 200" strokeWidth="16" className="draw-line"/></>,
 };
 
 export const GreaterThanIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

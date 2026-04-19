@@ -3,12 +3,12 @@ import { Icon, type IconWeights } from '../Icon';
 import type { IconProps } from '../types';
 
 const WEIGHTS: IconWeights = {
-  thin: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="8" className="draw-line" style={{animationDelay:"0s"}}/><line strokeWidth="8" className="draw-line" style={{animationDelay:"0.3s"}}/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="8" className="draw-line" style={{animationDelay:"0.6s"}}/></>,
-  light: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="12" className="draw-line" style={{animationDelay:"0s"}}/><line strokeWidth="12" className="draw-line" style={{animationDelay:"0.3s"}}/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="12" className="draw-line" style={{animationDelay:"0.6s"}}/></>,
-  regular: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="16" className="draw-line" style={{animationDelay:"0s"}}/><line strokeWidth="16" className="draw-line" style={{animationDelay:"0.3s"}}/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="16" className="draw-line" style={{animationDelay:"0.6s"}}/></>,
-  bold: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="24" className="draw-line" style={{animationDelay:"0s"}}/><line strokeWidth="24" className="draw-line" style={{animationDelay:"0.3s"}}/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="24" className="draw-line" style={{animationDelay:"0.6s"}}/></>,
+  thin: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="8" className="draw-line"/><line strokeWidth="8" className="draw-line"/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="8" className="draw-line"/></>,
+  light: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="12" className="draw-line"/><line strokeWidth="12" className="draw-line"/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="12" className="draw-line"/></>,
+  regular: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="16" className="draw-line"/><line strokeWidth="16" className="draw-line"/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="16" className="draw-line"/></>,
+  bold: <><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="24" className="draw-line"/><line strokeWidth="24" className="draw-line"/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="24" className="draw-line"/></>,
   fill: <><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM172,168a12,12,0,0,0,12-12,8,8,0,0,1,16,0,28,28,0,0,1-56,0V96H112v80a8,8,0,0,1-16,0V96H88a24,24,0,0,0-24,24,8,8,0,0,1-16,0A40,40,0,0,1,88,80H192a8,8,0,0,1,0,16H160v60A12,12,0,0,0,172,168Z" fill="currentColor"/></>,
-  duotone: <><path d="M196,200a28,28,0,0,1-28-28V64H88V200Z" opacity="0.2" fill="currentColor"/><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="16" className="draw-line" style={{animationDelay:"0s"}}/><line strokeWidth="16" className="draw-line" style={{animationDelay:"0.3s"}}/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="16" className="draw-line" style={{animationDelay:"0.6s"}}/></>,
+  duotone: <><path d="M196,200a28,28,0,0,1-28-28V64H88V200Z" opacity="0.2" fill="currentColor"/><path d="M224,64H72a48,48,0,0,0-48,48" strokeWidth="16" className="draw-line"/><line strokeWidth="16" className="draw-line"/><path d="M224,172a28,28,0,0,1-56,0V64" strokeWidth="16" className="draw-line"/></>,
 };
 
 export const PiIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

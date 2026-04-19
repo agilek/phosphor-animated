@@ -45,6 +45,7 @@ export const IconGrid = ({ icons, weight, color, onCopy }: IconGridProps) => {
                   key={name}
                   onClick={() => onCopy(pascalName)}
                   title={name}
+                  className="icon-tile"
                   style={{
                     display: 'flex', flexDirection: 'column', alignItems: 'center',
                     gap: 4, padding: 8, background: 'transparent', border: '1px solid transparent',

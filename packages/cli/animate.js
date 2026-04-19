@@ -80,12 +80,10 @@ function setAttrIfMissing(inner, name, value) {
   return `${inner} ${name}="${value}"`;
 }
 
-function rewriteTag(match, delay) {
+function rewriteTag(match) {
   const closing = match.endsWith('/>') ? '/>' : '>';
   let inner = match.slice(1, -closing.length);
   inner = mergeAttr(inner, 'class', 'draw-line', ' ');
-  inner = setAttrIfMissing(inner, 'pathLength', '1');
-  inner = mergeAttr(inner, 'style', `animation-delay: ${delay}s`, '; ');
   return `<${inner}${closing}`;
 }
 
@@ -96,7 +94,7 @@ export function transformSvg(input, cfg) {
   let index = 0;
   const rewritten = input.replace(TAG_RE, (match) => {
     if (!/\bstroke=/.test(match)) return match;
-    const out = rewriteTag(match, (index * cfg.stagger).toFixed(3).replace(/\.?0+$/, ''));
+    const out = rewriteTag(match);
     index++;
     return out;
   });
