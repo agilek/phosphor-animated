@@ -1,0 +1,13 @@
+Phosphor Animated
+Copyright (c) 2026 Michał Acler
+
+This product includes artwork and icon metadata derived from the Phosphor
+Icons project (https://github.com/phosphor-icons/core), Copyright (c) Phosphor
+Icons Team, MIT-licensed.
+
+The directory core-main/ contains an unmodified snapshot of Phosphor's source
+(icons.ts, raw/). The generated assets in core-main/raw-animated/ and the
+React components in packages/react/src/icons/ are derivative works under MIT.
+
+Upstream project: https://github.com/phosphor-icons/core
+Upstream license: https://github.com/phosphor-icons/core/blob/main/LICENSE
