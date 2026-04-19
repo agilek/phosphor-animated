@@ -157,3 +157,21 @@ Implemented `packages/react/scripts/generate.mjs` with five exported helper func
 **Root cause / approach:** The `extractAnimatedJsx` regex only matches elements with `class="draw-line"` and strips stroke-presentation attrs (`fill`, `stroke`, `stroke-linecap`, `stroke-linejoin`, `stroke-width`) while converting `style` inline strings to JSX `{{key:"val"}}` objects and converting `pathLength` to a JSX expression `{N}`. Because all five helpers are pure string transforms with no I/O, they're trivially unit-testable with `node:test`.
 
 → *No new memory entries.*
+
+## 2026-04-19
+
+### Generator orchestrator wired and 1512 icon components generated (Task 12)
+Added `main()` to `packages/react/scripts/generate.mjs` to wire all five helper functions into a full code-generation pipeline. The orchestrator parses the Phosphor manifest via regex, reads 6 SVGs per icon (thin/light/regular/bold/fill/duotone), writes per-icon `.tsx` files plus `index.ts` and `styles.css`. Result: 1512 components generated, 18 skipped (all missing `thin` weight — caduceus, activity, circle-wavy-*, etc.). 11/11 unit tests pass; `tsc --noEmit` over all 1512 generated files reports 0 errors.
+
+**Root cause / approach:** Fill-weight SVGs have no `draw-line` elements (solid fills), so `extractAnimatedJsx` correctly returns `""` for them — the output `<></>` is valid JSX and TypeScript accepts it. The ESM CLI guard (`import.meta.url === file://...`) lets the file be both imported by tests and run as a standalone script.
+
+→ *Memory saved: `generator-orchestrator-pattern.md`*
+
+## 2026-04-19
+
+### React library built with tsup (Task 13)
+Ran `pnpm --filter @agilek/phosphor-animated build`. Build completed successfully (ESM + CJS + DTS in ~25s). Added `esbuildOptions(options) { options.assetNames = '[name]'; }` to `tsup.config.ts` to prevent tsup from appending a content hash to the copied `styles.css` (default produced `styles-MDV557NG.css`, which broke the `"./styles.css"` export map entry).
+
+**Root cause / approach:** tsup's `loader: { '.css': 'copy' }` uses esbuild's asset pipeline, which by default appends a content hash to copied files. Setting `assetNames = '[name]'` in `esbuildOptions` strips the hash and outputs a stable `styles.css`. The smoke test (`node --loader css-stub index.mjs`) requires a custom ESM loader to stub CSS imports since Node.js 25 can't natively import `.css` — this is expected library behavior; bundlers handle it in end-user apps.
+
+→ *Memory saved: `tsup-css-asset-names.md`*

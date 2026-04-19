@@ -10,4 +10,7 @@ export default defineConfig({
   external: ['react'],
   loader: { '.css': 'copy' },
   injectStyle: false,
+  esbuildOptions(options) {
+    options.assetNames = '[name]';
+  },
 });
