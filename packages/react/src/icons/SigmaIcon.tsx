@@ -3,12 +3,12 @@ import { Icon, type IconWeights } from '../Icon';
 import type { IconProps } from '../types';
 
 const WEIGHTS: IconWeights = {
-  thin: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/></>,
-  light: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="12" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/></>,
-  regular: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/></>,
-  bold: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="24" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/></>,
+  thin: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="8" className="draw-line" style={{animationDelay:"0s"}}/></>,
+  light: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="12" className="draw-line" style={{animationDelay:"0s"}}/></>,
+  regular: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="16" className="draw-line" style={{animationDelay:"0s"}}/></>,
+  bold: <><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="24" className="draw-line" style={{animationDelay:"0s"}}/></>,
   fill: <><path d="M200,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V40A16,16,0,0,0,200,24ZM184,88a8,8,0,0,1-16,0V72H96l38.4,51.2a8,8,0,0,1,0,9.6L96,184h72V168a8,8,0,0,1,16,0v24a8,8,0,0,1-8,8H80a8,8,0,0,1-6.4-12.8L118,128,73.6,68.8A8,8,0,0,1,80,56h96a8,8,0,0,1,8,8Z" fill="currentColor"/></>,
-  duotone: <><polygon points="192 48 64 48 128 128 64 208 192 208 192 48" opacity="0.2" fill="currentColor"/><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/></>,
+  duotone: <><polygon points="192 48 64 48 128 128 64 208 192 208 192 48" opacity="0.2" fill="currentColor"/><polyline points="192 72 192 48 64 48 128 128 64 208 192 208 192 184" strokeWidth="16" className="draw-line" style={{animationDelay:"0s"}}/></>,
 };
 
 export const SigmaIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

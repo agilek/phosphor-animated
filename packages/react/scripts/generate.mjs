@@ -63,7 +63,8 @@ function rewriteElement(match) {
       continue;
     }
     if (name === 'pathLength') {
-      outAttrs.push(`pathLength={${value}}`);
+      // Drop: we measure the geometric length at mount via getTotalLength() and
+      // set --draw-length on each path, so pathLength normalization gets in the way.
       continue;
     }
     const reactName = reactAttrName(name);
@@ -122,7 +123,7 @@ ${exports}
 
 export function buildStylesCss({ duration, easing }) {
   return `.phosphor-animated-icon .draw-line {
-  stroke-dasharray: 2000;
+  stroke-dasharray: var(--draw-length, 2000);
   stroke-dashoffset: 0;
 }
 .phosphor-animated-icon:hover .draw-line {
@@ -130,7 +131,7 @@ export function buildStylesCss({ duration, easing }) {
 }
 @keyframes phosphor-draw-in {
   0%   { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 2000; }
+  100% { stroke-dashoffset: var(--draw-length, 2000); }
 }
 `;
 }

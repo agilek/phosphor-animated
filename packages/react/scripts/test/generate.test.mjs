@@ -7,7 +7,7 @@ test('extractAnimatedJsx: extracts a single draw-line path as JSX', () => {
   const jsx = extractAnimatedJsx(svg);
   assert.match(jsx, /<path\s/);
   assert.match(jsx, /className="draw-line"/);
-  assert.match(jsx, /pathLength=\{1\}/);
+  assert.doesNotMatch(jsx, /pathLength/);
   assert.match(jsx, /style=\{\{animationDelay:"0s"\}\}/);
   assert.match(jsx, /d="M0,0"/);
   assert.doesNotMatch(jsx, /fill=/);
@@ -108,4 +108,5 @@ test('buildStylesCss: substitutes duration and easing and loops infinitely on ho
   assert.match(out, /\.phosphor-animated-icon:hover \.draw-line/);
   assert.match(out, /animation: phosphor-draw-in 2s linear infinite alternate;/);
   assert.match(out, /@keyframes phosphor-draw-in/);
+  assert.match(out, /var\(--draw-length, 2000\)/);
 });
