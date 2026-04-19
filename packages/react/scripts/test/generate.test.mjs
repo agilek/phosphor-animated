@@ -69,3 +69,19 @@ test('extractAnimationParams: throws when not found', () => {
   const svg = `<svg></svg>`;
   assert.throws(() => extractAnimationParams(svg), /animation params not found/i);
 });
+
+import { buildIconModule } from '../generate.mjs';
+
+test('buildIconModule: wraps weights in a component export', () => {
+  const out = buildIconModule('Acorn', {
+    thin: '<path d="M0,0"/>',
+    light: '<path d="M1,1"/>',
+    regular: '<path d="M2,2"/>',
+    bold: '<path d="M3,3"/>',
+    fill: '<path d="M4,4"/>',
+    duotone: '<path d="M5,5"/>',
+  });
+  assert.match(out, /export const AcornIcon = /);
+  assert.match(out, /import '\.\.\/styles\.css';/);
+  assert.match(out, /regular: <><path d="M2,2"\/><\/>/);
+});
