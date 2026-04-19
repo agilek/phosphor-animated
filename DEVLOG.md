@@ -193,3 +193,12 @@ Created `apps/demo/scripts/copy-manifest.mjs` — a Node.js prebuild script that
 **Root cause / approach:** Phosphor's `core-main/src/icons.ts` uses TypeScript enums (`IconCategory`, `FigmaCategory`) that would break if imported directly by Vite from outside the `core-main` package. The copy-manifest script extracts only the plain-data fields via regex, avoiding any dependency on the enum types. The generated file is pure JSON-like TypeScript with no imports, so Vite processes it trivially.
 
 → *No new memory entries.*
+
+## 2026-04-19
+
+### Demo UI: Toolbar, virtualized IconGrid, and App wire-up (Tasks 16–18)
+Created `Toolbar.tsx` (search input, 6 weight toggle buttons, color picker), `IconGrid.tsx` (row-virtualized with `@tanstack/react-virtual`, 8-column grid, hover border, click-to-copy), and wired everything into `App.tsx` with `useMemo`-filtered search, toast notifications, and live color/weight state. All 8 verification items confirmed visually with agent-browser: toolbar renders, icon count shows "1512 of 1512", search for "heart" narrows to 11, weight toggle changes stroke weight, color picker changes color, hover triggers draw animation, click shows "Copied: HeartIcon" toast.
+
+**Root cause / approach:** `manifest.ts` had a pre-existing TS2352 type error — direct cast of `typeof import(...)` to `Record<string, ComponentType<IconProps>>` was rejected because `IconContext` (a `Context<>`) in the barrel export doesn't satisfy the index signature. Fix: cast through `unknown` first (`as unknown as Record<...>`), which is the TypeScript-idiomatic escape hatch for non-overlapping type assertions. Included as a fixup commit since the type check was a task requirement.
+
+→ *No new memory entries.*
