@@ -108,9 +108,52 @@ Implemented `main(argv)` in `animate.js` using all previously-built helpers — 
 
 ## 2026-04-19
 
+### CLI style block switched to hover-triggered animation (Task 2)
+Changed `buildStyleBlock` to emit the new "fully drawn at rest, redraw on hover" CSS strategy. The animation is now scoped to `svg:hover .draw-line` and the keyframe name was renamed from `draw-in` to `phosphor-draw-in` to avoid collisions when icons are embedded inline next to other libraries. Updated two tests before touching the implementation; TDD red→green cycle confirmed. 35/35 tests pass.
+
+**Root cause / approach:** The old strategy (`stroke-dashoffset: 1` at rest + animate on mount) meant the drawing played once on page load and never again. The new strategy (`stroke-dashoffset: 0` at rest + `from { stroke-dashoffset: 1 }` on hover) makes icons visually complete by default and replays the draw effect on every hover.
+
+→ *No new memory entries.*
+
 ### Allow core-main/raw-animated/ to be tracked by git
 Added `!core-main/raw-animated/` to the `.gitignore` opt-in block so Task 3 can commit regenerated animated SVGs. The `core-main/*` wildcard was already blocking the directory; adding the negation line is the correct idiom.
 
 **Root cause / approach:** One-line change — no surprises. `git check-ignore` exit code 1 with no output confirms the path is no longer ignored.
+
+→ *No new memory entries.*
+
+## 2026-04-19
+
+### Regenerate all 9072 animated SVGs with hover-play CSS (Task 3)
+Deleted the old `core-main/raw-animated/` tree (generated with mount-play CSS) and re-ran `node packages/cli/animate.js core-main/raw core-main/raw-animated` to produce 9072 fresh SVGs using the hover-triggered animation style from Task 2. Spot-checked `regular/acorn.svg` — confirmed `svg:hover .draw-line`, `phosphor-draw-in` keyframe, and `<path class="draw-line" pathLength="1">` elements present.
+
+**Root cause / approach:** Straightforward bulk regeneration — CLI ran without a single error, exact count 9072 matched input corpus. No surprises.
+
+→ *No new memory entries.*
+
+## 2026-04-19
+
+### Scaffold packages/react with tsup + TypeScript config (Task 4)
+Created the empty shell of `packages/react` — `package.json`, `tsconfig.json`, `tsup.config.ts`, and a placeholder `src/index.ts`. The package is named `@agilek/phosphor-animated` and targets dual ESM/CJS output via tsup. `pnpm install` brought in 55 new packages (react, @types/react, tsup, typescript) without errors.
+
+**Root cause / approach:** Straightforward scaffold — no surprises. esbuild build-script warning from pnpm is expected in locked workspace environments and is not an error.
+
+→ *No new memory entries.*
+
+## 2026-04-19
+
+### React core types and base Icon component added (Tasks 5–7)
+Created `types.ts` (`IconWeight`, `IconProps`, `IconContextValue`, `DEFAULT_ICON_PROPS`), `IconContext.tsx` (a plain `createContext<IconContextValue>({})`), and `Icon.tsx` (a `forwardRef` SVG wrapper). `Icon` merges props through a three-layer cascade (prop → context → defaults) and re-mounts the SVG on `mouseEnter` via a `key` flip (`animKey`) so CSS animations replay on every hover.
+
+**Root cause / approach:** The hover-remount trick (`setAnimKey(k => k + 1)` fed as `key` to `<svg>`) is the mechanism that makes CSS `@keyframes` replay without any JS animation library. React treats a changed `key` as a new element, resetting all CSS animation state. `tsc --noEmit` produces zero errors against the three new files.
+
+→ *No new memory entries.*
+
+## 2026-04-19
+
+### React generator helpers: Tasks 8–11 (extractAnimatedJsx, extractAnimationParams, buildIconModule, buildIndex, buildStylesCss)
+Implemented `packages/react/scripts/generate.mjs` with five exported helper functions covering the full code-generation pipeline: SVG-to-JSX attribute translation, animation param extraction from SVG `<style>` blocks, per-icon module templating, barrel index generation, and CSS file construction. All 11 TDD tests pass across 4 sequential commits.
+
+**Root cause / approach:** The `extractAnimatedJsx` regex only matches elements with `class="draw-line"` and strips stroke-presentation attrs (`fill`, `stroke`, `stroke-linecap`, `stroke-linejoin`, `stroke-width`) while converting `style` inline strings to JSX `{{key:"val"}}` objects and converting `pathLength` to a JSX expression `{N}`. Because all five helpers are pure string transforms with no I/O, they're trivially unit-testable with `node:test`.
 
 → *No new memory entries.*
