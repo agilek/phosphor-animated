@@ -202,3 +202,12 @@ Created `Toolbar.tsx` (search input, 6 weight toggle buttons, color picker), `Ic
 **Root cause / approach:** `manifest.ts` had a pre-existing TS2352 type error — direct cast of `typeof import(...)` to `Record<string, ComponentType<IconProps>>` was rejected because `IconContext` (a `Context<>`) in the barrel export doesn't satisfy the index signature. Fix: cast through `unknown` first (`as unknown as Record<...>`), which is the TypeScript-idiomatic escape hatch for non-overlapping type assertions. Included as a fixup commit since the type check was a task requirement.
 
 → *No new memory entries.*
+
+## 2026-04-19
+
+### README, LICENSE, CI workflow, and GH Pages deploy workflow (Tasks 19–21)
+Added project documentation (`README.md`, `LICENSE`, `NOTICE`) and two GitHub Actions workflows (`ci.yml`, `deploy-demo.yml`). The README covers install, React usage, raw SVG usage, animation customization, and the CLI. Three separate commits per task boundary.
+
+**Root cause / approach:** No implementation changes — pure documentation and CI config. The deploy workflow sets `GITHUB_PAGES: 'true'` env var for Vite base-path detection already wired in `vite.config.ts` from Task 14.
+
+→ *No new memory entries.*
