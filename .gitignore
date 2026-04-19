@@ -7,6 +7,7 @@ out/
 # core-main is vendored Phosphor source — ignore by default, opt-in to specific paths
 core-main/*
 !core-main/raw/
+!core-main/raw-animated/
 !core-main/src/
 !core-main/LICENSE
 !core-main/README.md

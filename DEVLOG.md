@@ -72,15 +72,6 @@ Added two TDD tests and one new guard line in `transformSvg`. The `no <svg> root
 
 ## 2026-04-19
 
-### walkSvgs: recursive async generator added (Task 8)
-Implemented `walkSvgs(root, current = root)` as an async generator exported from `animate.js`. Recursively yields `{ absPath, relPath }` for every `.svg` file under the root directory using `readdir` with `withFileTypes`. Added `readdir`/`join`/`relative` imports from Node built-ins at the top of `animate.js` (first imports in the file). Tests went 29→31.
-
-**Root cause / approach:** The two-argument signature `(root, current)` keeps the public API clean (caller only passes `root`) while enabling recursive calls to track the current traversal directory. `relative(root, absPath)` produces clean, OS-appropriate relative paths without leading slashes.
-
-→ *No new memory entries.*
-
-## 2026-04-19
-
 ### Fix: data-* false positives in attr merging; reject self-closing `<svg>` root
 `mergeAttr` and `setAttrIfMissing` used `\b` as a word-boundary anchor before the attribute name, but `\b` treats `-` as a non-word character, making `data-class=` match as a bare `class=` match. Replaced `\b` with `(?<![\w-])` (negative lookbehind excluding word chars and hyphens). Also, `/<svg\b[^>]*>/` matched self-closing `<svg ... />` because `[^>]*` consumed the `/`; tightened to `/<svg\b[^>]*(?<!\/)>/` so self-closing tags fall through to the `no <svg> root` error. Tests went 33→35.
 
@@ -90,9 +81,36 @@ Implemented `walkSvgs(root, current = root)` as an async generator exported from
 
 ## 2026-04-19
 
+### Monorepo restructure: CLI moved into pnpm workspace (Task 1)
+Converted the repo to a pnpm monorepo with `pnpm-workspace.yaml`, rewrote root `package.json` as a private workspace root, and moved `animate.js` + `test/` into `packages/cli/` with its own `package.json` and `README.md`. All 35 tests pass via `pnpm --filter @agilek/phosphor-animated-cli test`.
+
+**Root cause / approach:** `git add -A` after changing `.gitignore` from `core-main/` to `core-main/node_modules/` + `core-main/dist/` would have staged ~27K previously-ignored files in `core-main/`. Staged only the infrastructure files explicitly (`packages/`, `pnpm-workspace.yaml`, `pnpm-lock.yaml`, `.gitignore`, `package.json`) to keep the commit clean. `core-main/` remains untracked until explicitly added.
+
+→ *Memory saved: `pnpm-monorepo-gitignore-gotcha.md`*
+
+## 2026-04-19
+
+### Track vendored core-main raw SVGs, manifest, and license (spec-review Task 1)
+`core-main/` was fully untracked, blocking Task 12 (React generator) which depends on `core-main/raw/` and `core-main/src/icons.ts`. Updated `.gitignore` to use `core-main/*` + negated opt-ins for `raw/`, `src/`, `LICENSE`, and `README.md`, then committed 9,076 SVGs, the icon manifest, and license files. `raw-animated/` and build artifacts remain untracked as intended.
+
+**Root cause / approach:** Replacing two specific-path ignores (`core-main/node_modules/`, `core-main/dist/`) with a wildcard-plus-negation pattern (`core-main/*` + `!core-main/raw/`) is the correct git idiom for "ignore everything in this dir except these subdirs." A plain `!core-main/raw/` without the leading `core-main/*` would not work because git only un-ignores paths that were ignored by a parent pattern, not by a parent directory being untracked.
+
+→ *No new memory entries.*
+
+## 2026-04-19
+
 ### main() orchestration + end-to-end integration tests wired (Task 9)
 Implemented `main(argv)` in `animate.js` using all previously-built helpers — `parseArgs`, `walkSvgs`, `transformSvg` — to walk an input directory and write animated SVGs to a mirrored output tree. Added `readFile`, `writeFile`, `mkdir`, `stat`, and `dirname` imports. Added a direct-invocation guard (`import.meta.url === \`file://${process.argv[1]}\``) so the file can be both imported in tests and run as a CLI script. Tests went 31→33.
 
 **Root cause / approach:** Files that throw in `transformSvg` (e.g. existing `<style>` block) are caught per-file and counted as `skipped`, not as a fatal error — matching the spec's `{ processed, skipped }` return shape. The direct-invocation guard avoids a `process.argv.slice(2)` call when the module is imported by the test runner.
+
+→ *No new memory entries.*
+
+## 2026-04-19
+
+### Allow core-main/raw-animated/ to be tracked by git
+Added `!core-main/raw-animated/` to the `.gitignore` opt-in block so Task 3 can commit regenerated animated SVGs. The `core-main/*` wildcard was already blocking the directory; adding the negation line is the correct idiom.
+
+**Root cause / approach:** One-line change — no surprises. `git check-ignore` exit code 1 with no output confirms the path is no longer ignored.
 
 → *No new memory entries.*
