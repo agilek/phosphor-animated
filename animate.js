@@ -52,15 +52,27 @@ function buildStyleBlock({ duration, easing }) {
   </style>`;
 }
 
+function mergeAttr(inner, name, value, separator = ' ') {
+  const re = new RegExp(`\\b${name}="([^"]*)"`);
+  const existing = inner.match(re);
+  if (existing) {
+    return inner.replace(re, `${name}="${existing[1]}${separator}${value}"`);
+  }
+  return `${inner} ${name}="${value}"`;
+}
+
+function setAttrIfMissing(inner, name, value) {
+  const re = new RegExp(`\\b${name}="[^"]*"`);
+  if (re.test(inner)) return inner;
+  return `${inner} ${name}="${value}"`;
+}
+
 function rewriteTag(match, delay) {
-  // Split tag into inner attrs + closing (`/>` or `>`)
   const closing = match.endsWith('/>') ? '/>' : '>';
-  let inner = match.slice(1, -closing.length); // strip leading '<' and trailing closing
-  // inner looks like: `path d="..." stroke="..."`
-  const addAttr = (attrs, name, value) => `${attrs} ${name}="${value}"`;
-  inner = addAttr(inner, 'class', 'draw-line');
-  inner = addAttr(inner, 'pathLength', '1');
-  inner = addAttr(inner, 'style', `animation-delay: ${delay}s`);
+  let inner = match.slice(1, -closing.length);
+  inner = mergeAttr(inner, 'class', 'draw-line', ' ');
+  inner = setAttrIfMissing(inner, 'pathLength', '1');
+  inner = mergeAttr(inner, 'style', `animation-delay: ${delay}s`, '; ');
   return `<${inner}${closing}`;
 }
 

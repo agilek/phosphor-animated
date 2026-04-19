@@ -56,3 +56,23 @@ test('transformSvg: returns count = 0 when no stroke elements present', () => {
   // Style block still inserted
   assert.match(output, /<style>/);
 });
+
+test('transformSvg: existing class attribute gets draw-line appended', () => {
+  const input = `<svg viewBox="0 0 256 256"><path class="existing" stroke="red" d="M0,0"/></svg>`;
+  const { output } = transformSvg(input, CFG);
+  assert.match(output, /class="existing draw-line"/);
+  assert.doesNotMatch(output, /class="draw-line"/);
+});
+
+test('transformSvg: existing style attribute gets animation-delay appended', () => {
+  const input = `<svg viewBox="0 0 256 256"><path style="opacity:0.5" stroke="red" d="M0,0"/></svg>`;
+  const { output } = transformSvg(input, CFG);
+  assert.match(output, /style="opacity:0\.5; animation-delay: 0s"/);
+});
+
+test('transformSvg: existing pathLength is preserved', () => {
+  const input = `<svg viewBox="0 0 256 256"><path pathLength="100" stroke="red" d="M0,0"/></svg>`;
+  const { output } = transformSvg(input, CFG);
+  assert.match(output, /pathLength="100"/);
+  assert.doesNotMatch(output, /pathLength="1"/);
+});
