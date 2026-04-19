@@ -12,7 +12,7 @@ export type IconEntry = {
 
 const manifest: IconEntry[] = rawIcons.flatMap((entry) => {
   const componentName = `${entry.pascal_name}Icon`;
-  const component = (icons as Record<string, ComponentType<IconProps>>)[componentName];
+  const component = (icons as unknown as Record<string, ComponentType<IconProps>>)[componentName];
   if (!component) return [];
   return [{ name: entry.name, pascalName: entry.pascal_name, tags: entry.tags, component }];
 });
