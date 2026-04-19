@@ -76,3 +76,13 @@ test('transformSvg: existing pathLength is preserved', () => {
   assert.match(output, /pathLength="100"/);
   assert.doesNotMatch(output, /pathLength="1"/);
 });
+
+test('transformSvg: throws when input already has a <style> block', () => {
+  const input = `<svg viewBox="0 0 256 256"><style>.x{}</style><path stroke="red" d="M0,0"/></svg>`;
+  assert.throws(() => transformSvg(input, CFG), /existing <style>/i);
+});
+
+test('transformSvg: throws when input has no <svg> root', () => {
+  const input = `<div>not an svg</div>`;
+  assert.throws(() => transformSvg(input, CFG), /no <svg> root/i);
+});

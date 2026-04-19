@@ -79,6 +79,7 @@ function rewriteTag(match, delay) {
 export function transformSvg(input, cfg) {
   const svgOpenMatch = input.match(/<svg\b[^>]*>/);
   if (!svgOpenMatch) throw new Error('No <svg> root');
+  if (/<style\b/i.test(input)) throw new Error('Existing <style> block — refusing to clobber');
   let index = 0;
   const rewritten = input.replace(TAG_RE, (match) => {
     if (!/\bstroke=/.test(match)) return match;
