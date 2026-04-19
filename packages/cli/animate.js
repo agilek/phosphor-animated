@@ -54,8 +54,8 @@ function buildStyleBlock({ duration, easing }) {
       animation: phosphor-draw-in ${duration}s ${easing} infinite alternate;
     }
     @keyframes phosphor-draw-in {
-      0%   { stroke-dashoffset: 0; }
-      100% { stroke-dashoffset: 2000; }
+      0%   { stroke-dashoffset: 2000; }
+      100% { stroke-dashoffset: 0; }
     }
   </style>`;
 }
