@@ -5,10 +5,11 @@
       stroke-dashoffset: 0;
     }
     svg:hover .draw-line {
-      animation: phosphor-draw-in 1.5s ease-in-out infinite alternate;
+      animation: phosphor-draw-in 3s ease-in-out infinite alternate;
     }
     @keyframes phosphor-draw-in {
       0%   { stroke-dashoffset: 2000; }
+      50%  { stroke-dashoffset: 0; }
       100% { stroke-dashoffset: 0; }
     }
   </style><rect width="256" height="256" fill="none"/><path d="M72,232h0a24,24,0,0,1,24-24h64a24,24,0,0,1,24,24h0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" class="draw-line" pathLength="1" style="animation-delay: 0s"/><line x1="128" y1="168" x2="128" y2="232" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" class="draw-line" pathLength="1" style="animation-delay: 0.3s"/><path d="M16,128H40a40,40,0,0,0,40,40h96a40,40,0,0,0,40-40h24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" class="draw-line" pathLength="1" style="animation-delay: 0.6s"/><path d="M154.41,24H101.59a8,8,0,0,0-7.93,6.78l-13.57,88A8,8,0,0,0,88,128h80a8,8,0,0,0,7.93-9.22l-13.57-88A8,8,0,0,0,154.41,24Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" class="draw-line" pathLength="1" style="animation-delay: 0.9s"/></svg>

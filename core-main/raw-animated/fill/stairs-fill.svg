@@ -5,10 +5,11 @@
       stroke-dashoffset: 0;
     }
     svg:hover .draw-line {
-      animation: phosphor-draw-in 1.5s ease-in-out infinite alternate;
+      animation: phosphor-draw-in 3s ease-in-out infinite alternate;
     }
     @keyframes phosphor-draw-in {
       0%   { stroke-dashoffset: 2000; }
+      50%  { stroke-dashoffset: 0; }
       100% { stroke-dashoffset: 0; }
     }
   </style><rect width="256" height="256" fill="none"/><path d="M200,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V40A16,16,0,0,0,200,24Zm-40,80h40v24H160Zm-48,40h88v24H112Zm88,72H56V184H200v32Z"/></svg>

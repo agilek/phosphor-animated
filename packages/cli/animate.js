@@ -44,6 +44,10 @@ const STROKE_TAGS = ['path', 'polygon', 'polyline', 'line', 'circle', 'rect', 'e
 const TAG_RE = new RegExp(`<(${STROKE_TAGS.join('|')})\\b[^>]*?/?>`, 'g');
 
 function buildStyleBlock({ duration, easing }) {
+  // Cycle duration is 2× draw duration so the alternate iteration's first
+  // half (and the next one's last half) hold the drawn state — total pause
+  // at fully-drawn is one draw-duration across the iteration boundary.
+  const cycle = duration * 2;
   return `
   <style>
     .draw-line {
@@ -51,10 +55,11 @@ function buildStyleBlock({ duration, easing }) {
       stroke-dashoffset: 0;
     }
     svg:hover .draw-line {
-      animation: phosphor-draw-in ${duration}s ${easing} infinite alternate;
+      animation: phosphor-draw-in ${cycle}s ${easing} infinite alternate;
     }
     @keyframes phosphor-draw-in {
       0%   { stroke-dashoffset: 2000; }
+      50%  { stroke-dashoffset: 0; }
       100% { stroke-dashoffset: 0; }
     }
   </style>`;

@@ -122,15 +122,23 @@ ${exports}
 }
 
 export function buildStylesCss({ duration, easing }) {
+  // Cycle = 2× draw duration; the 50% keyframe holds the drawn state for the
+  // remainder, which combines with alternate's reverse iteration to produce
+  // a pause-at-drawn equal to one draw duration across the iteration boundary.
+  const m = String(duration).trim().match(/^(\d+(?:\.\d+)?)(ms|s)?$/);
+  const value = m ? parseFloat(m[1]) * 2 : 3;
+  const unit = m && m[2] === 'ms' ? 'ms' : 's';
+  const cycle = `${value}${unit}`;
   return `.phosphor-animated-icon .draw-line {
   stroke-dasharray: var(--draw-length, 2000);
   stroke-dashoffset: 0;
 }
 .phosphor-animated-icon:hover .draw-line {
-  animation: phosphor-draw-in ${duration} ${easing} infinite alternate;
+  animation: phosphor-draw-in ${cycle} ${easing} infinite alternate;
 }
 @keyframes phosphor-draw-in {
   0%   { stroke-dashoffset: var(--draw-length, 2000); }
+  50%  { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: 0; }
 }
 `;

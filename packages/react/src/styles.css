@@ -3,9 +3,10 @@
   stroke-dashoffset: 0;
 }
 .phosphor-animated-icon:hover .draw-line {
-  animation: phosphor-draw-in 1.5s ease-in-out infinite alternate;
+  animation: phosphor-draw-in 6s ease-in-out infinite alternate;
 }
 @keyframes phosphor-draw-in {
   0%   { stroke-dashoffset: var(--draw-length, 2000); }
+  50%  { stroke-dashoffset: 0; }
   100% { stroke-dashoffset: 0; }
 }
