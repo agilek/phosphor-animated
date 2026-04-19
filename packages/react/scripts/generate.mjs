@@ -112,14 +112,14 @@ ${exports}
 
 export function buildStylesCss({ duration, easing }) {
   return `.phosphor-animated-icon .draw-line {
-  stroke-dasharray: 1;
+  stroke-dasharray: 2000;
   stroke-dashoffset: 0;
 }
 .phosphor-animated-icon:hover .draw-line {
   animation: phosphor-draw-in ${duration} ${easing} infinite;
 }
 @keyframes phosphor-draw-in {
-  0%   { stroke-dashoffset: 1; }
+  0%   { stroke-dashoffset: 2000; }
   100% { stroke-dashoffset: 0; }
 }
 `;

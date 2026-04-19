@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
   <style>
     .draw-line {
-      stroke-dasharray: 1;
+      stroke-dasharray: 2000;
       stroke-dashoffset: 0;
     }
     svg:hover .draw-line {
       animation: phosphor-draw-in 1.5s ease-in-out infinite;
     }
     @keyframes phosphor-draw-in {
-      0%   { stroke-dashoffset: 1; }
+      0%   { stroke-dashoffset: 2000; }
       100% { stroke-dashoffset: 0; }
     }
   </style><rect width="256" height="256" fill="none"/><path d="M206.63,94.63a32,32,0,0,0-45.26-45.26L128,82.75,173.25,128Z" opacity="0.2"/><path d="M49.37,161.37a32,32,0,0,0,45.26,45.26L128,173.25,82.75,128Z" opacity="0.2"/><path d="M94.63,49.37A32,32,0,0,0,49.37,94.63L82.75,128,128,82.75Z" opacity="0.2"/><path d="M173.25,128,128,173.25l33.37,33.38a32,32,0,0,0,45.26-45.26Z" opacity="0.2"/><path d="M49.37,94.63A32,32,0,0,1,94.63,49.37l112,112a32,32,0,0,1-45.26,45.26Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" class="draw-line" pathLength="1" style="animation-delay: 0s"/><path d="M161.37,49.37a32,32,0,0,1,45.26,45.26l-112,112a32,32,0,0,1-45.26-45.26Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" class="draw-line" pathLength="1" style="animation-delay: 0.3s"/><circle cx="128" cy="128" r="4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" opacity="0.5" class="draw-line" pathLength="1" style="animation-delay: 0.6s"/><circle cx="128" cy="128" r="12"/></svg>

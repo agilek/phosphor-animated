@@ -47,14 +47,14 @@ function buildStyleBlock({ duration, easing }) {
   return `
   <style>
     .draw-line {
-      stroke-dasharray: 1;
+      stroke-dasharray: 2000;
       stroke-dashoffset: 0;
     }
     svg:hover .draw-line {
       animation: phosphor-draw-in ${duration}s ${easing} infinite;
     }
     @keyframes phosphor-draw-in {
-      0%   { stroke-dashoffset: 1; }
+      0%   { stroke-dashoffset: 2000; }
       100% { stroke-dashoffset: 0; }
     }
   </style>`;

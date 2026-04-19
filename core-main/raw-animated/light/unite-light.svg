@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
   <style>
     .draw-line {
-      stroke-dasharray: 1;
+      stroke-dasharray: 2000;
       stroke-dashoffset: 0;
     }
     svg:hover .draw-line {
       animation: phosphor-draw-in 1.5s ease-in-out infinite;
     }
     @keyframes phosphor-draw-in {
-      0%   { stroke-dashoffset: 1; }
+      0%   { stroke-dashoffset: 2000; }
       100% { stroke-dashoffset: 0; }
     }
   </style><rect width="256" height="256" fill="none"/><line x1="98.52" y1="122.52" x2="133.48" y2="157.48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 0s"/><line x1="122.52" y1="98.52" x2="157.48" y2="133.48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 0.3s"/><circle cx="96" cy="96" r="72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 0.6s"/><circle cx="160" cy="160" r="72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 0.9s"/><line x1="164.91" y1="116.91" x2="228.91" y2="180.91" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 1.2s"/><line x1="146.91" y1="146.91" x2="210.91" y2="210.91" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 1.5s"/><line x1="116.91" y1="164.91" x2="180.91" y2="228.91" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 1.8s"/><line x1="75.09" y1="27.09" x2="139.09" y2="91.09" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 2.1s"/><line x1="45.09" y1="45.09" x2="109.09" y2="109.09" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 2.4s"/><line x1="27.08" y1="75.08" x2="91.08" y2="139.08" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12" class="draw-line" pathLength="1" style="animation-delay: 2.7s"/></svg>

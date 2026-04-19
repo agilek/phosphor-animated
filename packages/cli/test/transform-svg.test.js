@@ -25,7 +25,7 @@ test('transformSvg: style block uses hover-scoped infinite animation with config
   const { output } = transformSvg(input, { duration: 2, stagger: 0.5, easing: 'linear' });
   assert.match(output, /svg:hover \.draw-line\s*\{[^}]*animation: phosphor-draw-in 2s linear infinite/);
   assert.match(output, /@keyframes phosphor-draw-in/);
-  assert.match(output, /0%\s*\{ stroke-dashoffset: 1; \}/);
+  assert.match(output, /0%\s*\{ stroke-dashoffset: 2000; \}/);
   assert.match(output, /100%\s*\{ stroke-dashoffset: 0; \}/);
 });
 
