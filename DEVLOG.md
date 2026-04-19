@@ -175,3 +175,21 @@ Ran `pnpm --filter @agilek/phosphor-animated build`. Build completed successfull
 **Root cause / approach:** tsup's `loader: { '.css': 'copy' }` uses esbuild's asset pipeline, which by default appends a content hash to copied files. Setting `assetNames = '[name]'` in `esbuildOptions` strips the hash and outputs a stable `styles.css`. The smoke test (`node --loader css-stub index.mjs`) requires a custom ESM loader to stub CSS imports since Node.js 25 can't natively import `.css` — this is expected library behavior; bundlers handle it in end-user apps.
 
 → *Memory saved: `tsup-css-asset-names.md`*
+
+## 2026-04-19
+
+### Scaffold apps/demo Vite React app (Task 14)
+Created `apps/demo` as a Vite + React app that imports `@agilek/phosphor-animated` via the workspace:* protocol. Six files added: `package.json`, `vite.config.ts`, `tsconfig.json`, `index.html`, `src/main.tsx`, and `src/App.tsx`. `pnpm install` resolved 54 new packages. Dev server started successfully on localhost:5175 (5173/5174 occupied by other projects) and served the correct HTML with `<div id="root"></div>`.
+
+**Root cause / approach:** The demo app's `vite.config.ts` reads `process.env.GITHUB_PAGES` at config time to set the base path — no build-time injection needed, just a string env var. Port collision from other running dev servers is normal; Vite auto-increments. `pnpm approve-builds` interactive prompt for esbuild is expected in locked workspaces and does not block the install.
+
+→ *No new memory entries.*
+
+## 2026-04-19
+
+### Demo manifest loader with copy-manifest prebuild step (Task 15)
+Created `apps/demo/scripts/copy-manifest.mjs` — a Node.js prebuild script that reads `core-main/src/icons.ts` and extracts `name`, `pascal_name`, and `tags` for each icon into a plain-data `apps/demo/src/icons-manifest.ts` (1512 entries, 1515 lines). Created `apps/demo/src/manifest.ts` which joins the raw icon data with React component exports from `@agilek/phosphor-animated`, producing `ICONS: IconEntry[]`. Updated `dev` and `build` scripts in `apps/demo/package.json` to run the copy step first. Added `apps/demo/src/icons-manifest.ts` to `.gitignore` since it is derived/generated.
+
+**Root cause / approach:** Phosphor's `core-main/src/icons.ts` uses TypeScript enums (`IconCategory`, `FigmaCategory`) that would break if imported directly by Vite from outside the `core-main` package. The copy-manifest script extracts only the plain-data fields via regex, avoiding any dependency on the enum types. The generated file is pure JSON-like TypeScript with no imports, so Vite processes it trivially.
+
+→ *No new memory entries.*
