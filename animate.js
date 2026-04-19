@@ -36,3 +36,46 @@ export function parseArgs(argv) {
     ...opts,
   };
 }
+
+const STROKE_TAGS = ['path', 'polygon', 'polyline', 'line', 'circle', 'rect', 'ellipse'];
+const TAG_RE = new RegExp(`<(${STROKE_TAGS.join('|')})\\b[^>]*?/?>`, 'g');
+
+function buildStyleBlock({ duration, easing }) {
+  return `
+  <style>
+    .draw-line {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: draw-in ${duration}s ${easing} forwards;
+    }
+    @keyframes draw-in { to { stroke-dashoffset: 0; } }
+  </style>`;
+}
+
+function rewriteTag(match, delay) {
+  // Split tag into inner attrs + closing (`/>` or `>`)
+  const closing = match.endsWith('/>') ? '/>' : '>';
+  let inner = match.slice(1, -closing.length); // strip leading '<' and trailing closing
+  // inner looks like: `path d="..." stroke="..."`
+  const addAttr = (attrs, name, value) => `${attrs} ${name}="${value}"`;
+  inner = addAttr(inner, 'class', 'draw-line');
+  inner = addAttr(inner, 'pathLength', '1');
+  inner = addAttr(inner, 'style', `animation-delay: ${delay}s`);
+  return `<${inner}${closing}`;
+}
+
+export function transformSvg(input, cfg) {
+  const svgOpenMatch = input.match(/<svg\b[^>]*>/);
+  if (!svgOpenMatch) throw new Error('No <svg> root');
+  let index = 0;
+  const rewritten = input.replace(TAG_RE, (match) => {
+    if (!/\bstroke=/.test(match)) return match;
+    const out = rewriteTag(match, (index * cfg.stagger).toFixed(3).replace(/\.?0+$/, ''));
+    index++;
+    return out;
+  });
+  const insertAt = svgOpenMatch.index + svgOpenMatch[0].length;
+  const output =
+    rewritten.slice(0, insertAt) + buildStyleBlock(cfg) + rewritten.slice(insertAt);
+  return { output, count: index };
+}
