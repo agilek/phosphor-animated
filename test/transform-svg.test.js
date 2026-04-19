@@ -86,3 +86,21 @@ test('transformSvg: throws when input has no <svg> root', () => {
   const input = `<div>not an svg</div>`;
   assert.throws(() => transformSvg(input, CFG), /no <svg> root/i);
 });
+
+test('transformSvg: data-* attributes do not collide with class/style/pathLength merging', () => {
+  const input = `<svg viewBox="0 0 256 256"><path data-class="foo" data-style="bg:red" data-pathLength="99" stroke="red" d="M0,0"/></svg>`;
+  const { output } = transformSvg(input, CFG);
+  // data-* attributes must be preserved unchanged
+  assert.match(output, /data-class="foo"/);
+  assert.match(output, /data-style="bg:red"/);
+  assert.match(output, /data-pathLength="99"/);
+  // Real attributes must still be injected
+  assert.match(output, /(^|\s)class="draw-line"/);
+  assert.match(output, /(^|\s)style="animation-delay: 0s"/);
+  assert.match(output, /(^|\s)pathLength="1"/);
+});
+
+test('transformSvg: throws when <svg> root is self-closing (malformed input)', () => {
+  const input = `<svg viewBox="0 0 256 256"/>`;
+  assert.throws(() => transformSvg(input, CFG), /no <svg> root/i);
+});

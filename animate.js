@@ -56,7 +56,7 @@ function buildStyleBlock({ duration, easing }) {
 }
 
 function mergeAttr(inner, name, value, separator = ' ') {
-  const re = new RegExp(`\\b${name}="([^"]*)"`);
+  const re = new RegExp(`(?<![\\w-])${name}="([^"]*)"`);
   const existing = inner.match(re);
   if (existing) {
     return inner.replace(re, `${name}="${existing[1]}${separator}${value}"`);
@@ -65,7 +65,7 @@ function mergeAttr(inner, name, value, separator = ' ') {
 }
 
 function setAttrIfMissing(inner, name, value) {
-  const re = new RegExp(`\\b${name}="[^"]*"`);
+  const re = new RegExp(`(?<![\\w-])${name}="[^"]*"`);
   if (re.test(inner)) return inner;
   return `${inner} ${name}="${value}"`;
 }
@@ -80,7 +80,7 @@ function rewriteTag(match, delay) {
 }
 
 export function transformSvg(input, cfg) {
-  const svgOpenMatch = input.match(/<svg\b[^>]*>/);
+  const svgOpenMatch = input.match(/<svg\b[^>]*(?<!\/)>/);
   if (!svgOpenMatch) throw new Error('No <svg> root');
   if (/<style\b/i.test(input)) throw new Error('Existing <style> block — refusing to clobber');
   let index = 0;
