@@ -1,0 +1,15 @@
+{
+  "name": "phosphor-animated",
+  "version": "0.1.0",
+  "description": "Convert static Phosphor SVG icons to animated line-draw SVGs.",
+  "type": "module",
+  "bin": {
+    "phosphor-animated": "./animate.js"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
