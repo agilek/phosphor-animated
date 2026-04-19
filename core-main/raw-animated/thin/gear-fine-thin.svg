@@ -2,10 +2,13 @@
   <style>
     .draw-line {
       stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: phosphor-draw-in 1.5s ease-in-out forwards;
+      stroke-dashoffset: 0;
+    }
+    svg:hover .draw-line {
+      animation: phosphor-draw-in 1.5s ease-in-out infinite;
     }
     @keyframes phosphor-draw-in {
-      to { stroke-dashoffset: 0; }
+      0%   { stroke-dashoffset: 1; }
+      100% { stroke-dashoffset: 0; }
     }
   </style><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 0s"/><line x1="128" y1="128" x2="232" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 0.3s"/><line x1="128" y1="128" x2="76" y2="37.93" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 0.6s"/><line x1="128" y1="128" x2="76" y2="218.07" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 0.9s"/><line x1="128" y1="48" x2="128" y2="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 1.2s"/><line x1="58.72" y1="88" x2="37.93" y2="76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 1.5s"/><line x1="48" y1="128" x2="24" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 1.8s"/><line x1="58.72" y1="168" x2="37.93" y2="180" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 2.1s"/><line x1="128" y1="208" x2="128" y2="232" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 2.4s"/><line x1="168" y1="197.28" x2="180" y2="218.07" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 2.7s"/><line x1="197.28" y1="168" x2="218.07" y2="180" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 3s"/><line x1="197.28" y1="88" x2="218.07" y2="76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 3.3s"/><line x1="168" y1="58.72" x2="180" y2="37.93" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 3.6s"/></svg>

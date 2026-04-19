@@ -2,10 +2,13 @@
   <style>
     .draw-line {
       stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: phosphor-draw-in 1.5s ease-in-out forwards;
+      stroke-dashoffset: 0;
+    }
+    svg:hover .draw-line {
+      animation: phosphor-draw-in 1.5s ease-in-out infinite;
     }
     @keyframes phosphor-draw-in {
-      to { stroke-dashoffset: 0; }
+      0%   { stroke-dashoffset: 1; }
+      100% { stroke-dashoffset: 0; }
     }
   </style><rect width="256" height="256" fill="none"/><path d="M160,80v96a8,8,0,0,1-8,8H128v40a8,8,0,0,1-13.66,5.66l-96-96a8,8,0,0,1,0-11.32l96-96A8,8,0,0,1,128,32V72h24A8,8,0,0,1,160,80Zm56-8a8,8,0,0,0-8,8v96a8,8,0,0,0,16,0V80A8,8,0,0,0,216,72Zm-32,0a8,8,0,0,0-8,8v96a8,8,0,0,0,16,0V80A8,8,0,0,0,184,72Z"/></svg>

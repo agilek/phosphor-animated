@@ -80,7 +80,7 @@ export function extractAnimatedJsx(svgSource) {
 }
 
 export function extractAnimationParams(svgSource) {
-  const m = svgSource.match(/animation:\s*phosphor-draw-in\s+(\S+)\s+(\S+)\s+forwards/);
+  const m = svgSource.match(/animation:\s*phosphor-draw-in\s+(\S+)\s+(\S+)\s+(?:forwards|infinite)/);
   if (!m) throw new Error('Animation params not found in SVG source');
   return { duration: m[1], easing: m[2] };
 }
@@ -113,11 +113,14 @@ ${exports}
 export function buildStylesCss({ duration, easing }) {
   return `.phosphor-animated-icon .draw-line {
   stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: phosphor-draw-in ${duration} ${easing} forwards;
+  stroke-dashoffset: 0;
+}
+.phosphor-animated-icon:hover .draw-line {
+  animation: phosphor-draw-in ${duration} ${easing} infinite;
 }
 @keyframes phosphor-draw-in {
-  to { stroke-dashoffset: 0; }
+  0%   { stroke-dashoffset: 1; }
+  100% { stroke-dashoffset: 0; }
 }
 `;
 }

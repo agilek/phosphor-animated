@@ -1,8 +1,11 @@
 .phosphor-animated-icon .draw-line {
   stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: phosphor-draw-in 1.5s ease-in-out forwards;
+  stroke-dashoffset: 0;
+}
+.phosphor-animated-icon:hover .draw-line {
+  animation: phosphor-draw-in 1.5s ease-in-out infinite;
 }
 @keyframes phosphor-draw-in {
-  to { stroke-dashoffset: 0; }
+  0%   { stroke-dashoffset: 1; }
+  100% { stroke-dashoffset: 0; }
 }
