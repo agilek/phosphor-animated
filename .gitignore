@@ -4,5 +4,9 @@ dist/
 *.log
 .DS_Store
 out/
-core-main/node_modules/
-core-main/dist/
+# core-main is vendored Phosphor source — ignore by default, opt-in to specific paths
+core-main/*
+!core-main/raw/
+!core-main/src/
+!core-main/LICENSE
+!core-main/README.md
