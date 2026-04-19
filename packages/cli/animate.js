@@ -48,10 +48,15 @@ function buildStyleBlock({ duration, easing }) {
   <style>
     .draw-line {
       stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: draw-in ${duration}s ${easing} forwards;
+      stroke-dashoffset: 0;
     }
-    @keyframes draw-in { to { stroke-dashoffset: 0; } }
+    svg:hover .draw-line {
+      animation: phosphor-draw-in ${duration}s ${easing} forwards;
+    }
+    @keyframes phosphor-draw-in {
+      from { stroke-dashoffset: 1; }
+      to { stroke-dashoffset: 0; }
+    }
   </style>`;
 }
 
