@@ -3,12 +3,13 @@
 const STROKE_TAGS = ['path', 'polygon', 'polyline', 'line', 'circle', 'rect', 'ellipse'];
 const TAG_RE = new RegExp(`<(${STROKE_TAGS.join('|')})\\b[^>]*?/?>`, 'g');
 
+// `stroke-width` is kept per-path: Phosphor distinguishes thin/light/regular/bold
+// purely by stroke-width (8/12/16/24).
 const STRIP_ATTRS = new Set([
   'fill',
   'stroke',
   'stroke-linecap',
   'stroke-linejoin',
-  'stroke-width',
 ]);
 
 function parseStyleString(styleStr) {
@@ -41,11 +42,14 @@ function reactAttrName(name) {
 }
 
 function rewriteElement(match) {
-  if (!/class="draw-line"/.test(match)) return null;
   const closing = match.endsWith('/>') ? '/>' : '>';
   const tagMatch = match.match(/^<([a-z]+)\b/);
   if (!tagMatch) return null;
   const tagName = tagMatch[1];
+  // Skip the background rect that Phosphor puts at the top of every SVG.
+  if (tagName === 'rect' && /width="256"/.test(match) && /height="256"/.test(match) && /fill="none"/.test(match)) {
+    return null;
+  }
   const attrsStr = match.slice(1 + tagName.length, -closing.length);
   const attrRe = /([a-zA-Z-]+)="([^"]*)"/g;
   const outAttrs = [];
@@ -64,6 +68,12 @@ function rewriteElement(match) {
     }
     const reactName = reactAttrName(name);
     outAttrs.push(`${reactName}="${value}"`);
+  }
+  // Fill-weight paths have no stroke and need fill="currentColor" to render.
+  // Detect: no stroke attribute and no class="draw-line" (stroked animated paths).
+  const hasStroke = /\bstroke="/.test(match);
+  if (!hasStroke && !outAttrs.some((a) => a.startsWith('fill='))) {
+    outAttrs.push('fill="currentColor"');
   }
   return `<${tagName} ${outAttrs.join(' ')}/>`;
 }

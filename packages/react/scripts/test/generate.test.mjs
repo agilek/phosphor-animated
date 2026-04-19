@@ -11,16 +11,23 @@ test('extractAnimatedJsx: extracts a single draw-line path as JSX', () => {
   assert.match(jsx, /style=\{\{animationDelay:"0s"\}\}/);
   assert.match(jsx, /d="M0,0"/);
   assert.doesNotMatch(jsx, /fill=/);
-  assert.doesNotMatch(jsx, /stroke=/);
+  assert.doesNotMatch(jsx, /stroke="/);
   assert.doesNotMatch(jsx, /stroke-linecap=/);
-  assert.doesNotMatch(jsx, /stroke-width=/);
+  assert.match(jsx, /strokeWidth="16"/);
 });
 
-test('extractAnimatedJsx: skips elements without class="draw-line"', () => {
+test('extractAnimatedJsx: skips the 256x256 fill="none" background rect', () => {
   const svg = `<svg viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path class="draw-line" pathLength="1" style="animation-delay: 0s" d="M0,0"/></svg>`;
   const jsx = extractAnimatedJsx(svg);
   assert.doesNotMatch(jsx, /<rect/);
   assert.match(jsx, /<path/);
+});
+
+test('extractAnimatedJsx: fill-weight paths get fill="currentColor" for proper rendering', () => {
+  const svg = `<svg viewBox="0 0 256 256"><rect width="256" height="256" fill="none"/><path d="M0,0"/></svg>`;
+  const jsx = extractAnimatedJsx(svg);
+  assert.match(jsx, /<path\s/);
+  assert.match(jsx, /fill="currentColor"/);
 });
 
 test('extractAnimatedJsx: handles polygon with points attribute', () => {

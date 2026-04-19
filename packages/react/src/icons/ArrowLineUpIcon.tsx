@@ -3,12 +3,12 @@ import { Icon, type IconWeights } from '../Icon';
 import type { IconProps } from '../types';
 
 const WEIGHTS: IconWeights = {
-  thin: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 144 128 72 200 144" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
-  light: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 144 128 72 200 144" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
-  regular: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 144 128 72 200 144" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
-  bold: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 152 128 80 200 152" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
-  fill: <></>,
-  duotone: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polygon points="56 144 128 72 200 144 56 144" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  thin: <><line strokeWidth="8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 144 128 72 200 144" strokeWidth="8" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line strokeWidth="8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  light: <><line strokeWidth="12" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 144 128 72 200 144" strokeWidth="12" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line strokeWidth="12" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  regular: <><line strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 144 128 72 200 144" strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  bold: <><line strokeWidth="24" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="56 152 128 80 200 152" strokeWidth="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line strokeWidth="24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  fill: <><path d="M205.66,138.34A8,8,0,0,1,200,152H136v72a8,8,0,0,1-16,0V152H56a8,8,0,0,1-5.66-13.66l72-72a8,8,0,0,1,11.32,0ZM216,32H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z" fill="currentColor"/></>,
+  duotone: <><polygon points="56 144 128 72 200 144 56 144" opacity="0.2" fill="currentColor"/><line strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polygon points="56 144 128 72 200 144 56 144" strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line strokeWidth="16" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
 };
 
 export const ArrowLineUpIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

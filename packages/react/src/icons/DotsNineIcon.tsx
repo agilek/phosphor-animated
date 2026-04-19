@@ -3,12 +3,12 @@ import { Icon, type IconWeights } from '../Icon';
 import type { IconProps } from '../types';
 
 const WEIGHTS: IconWeights = {
-  thin: <></>,
-  light: <></>,
-  regular: <></>,
-  bold: <></>,
-  fill: <></>,
-  duotone: <></>,
+  thin: <><circle cx="60" cy="60" r="8" fill="currentColor"/><circle cx="128" cy="60" r="8" fill="currentColor"/><circle cx="196" cy="60" r="8" fill="currentColor"/><circle cx="60" cy="128" r="8" fill="currentColor"/><circle cx="128" cy="128" r="8" fill="currentColor"/><circle cx="196" cy="128" r="8" fill="currentColor"/><circle cx="60" cy="196" r="8" fill="currentColor"/><circle cx="128" cy="196" r="8" fill="currentColor"/><circle cx="196" cy="196" r="8" fill="currentColor"/></>,
+  light: <><circle cx="60" cy="60" r="10" fill="currentColor"/><circle cx="128" cy="60" r="10" fill="currentColor"/><circle cx="196" cy="60" r="10" fill="currentColor"/><circle cx="60" cy="128" r="10" fill="currentColor"/><circle cx="128" cy="128" r="10" fill="currentColor"/><circle cx="196" cy="128" r="10" fill="currentColor"/><circle cx="60" cy="196" r="10" fill="currentColor"/><circle cx="128" cy="196" r="10" fill="currentColor"/><circle cx="196" cy="196" r="10" fill="currentColor"/></>,
+  regular: <><circle cx="60" cy="60" r="12" fill="currentColor"/><circle cx="128" cy="60" r="12" fill="currentColor"/><circle cx="196" cy="60" r="12" fill="currentColor"/><circle cx="60" cy="128" r="12" fill="currentColor"/><circle cx="128" cy="128" r="12" fill="currentColor"/><circle cx="196" cy="128" r="12" fill="currentColor"/><circle cx="60" cy="196" r="12" fill="currentColor"/><circle cx="128" cy="196" r="12" fill="currentColor"/><circle cx="196" cy="196" r="12" fill="currentColor"/></>,
+  bold: <><circle cx="60" cy="60" r="16" fill="currentColor"/><circle cx="128" cy="60" r="16" fill="currentColor"/><circle cx="196" cy="60" r="16" fill="currentColor"/><circle cx="60" cy="128" r="16" fill="currentColor"/><circle cx="128" cy="128" r="16" fill="currentColor"/><circle cx="196" cy="128" r="16" fill="currentColor"/><circle cx="60" cy="196" r="16" fill="currentColor"/><circle cx="128" cy="196" r="16" fill="currentColor"/><circle cx="196" cy="196" r="16" fill="currentColor"/></>,
+  fill: <><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM76,192a12,12,0,1,1,12-12A12,12,0,0,1,76,192Zm0-52a12,12,0,1,1,12-12A12,12,0,0,1,76,140Zm0-52A12,12,0,1,1,88,76,12,12,0,0,1,76,88Zm52,104a12,12,0,1,1,12-12A12,12,0,0,1,128,192Zm0-52a12,12,0,1,1,12-12A12,12,0,0,1,128,140Zm0-52a12,12,0,1,1,12-12A12,12,0,0,1,128,88Zm52,104a12,12,0,1,1,12-12A12,12,0,0,1,180,192Zm0-52a12,12,0,1,1,12-12A12,12,0,0,1,180,140Zm0-52a12,12,0,1,1,12-12A12,12,0,0,1,180,88Z" fill="currentColor"/></>,
+  duotone: <><rect x="32" y="32" width="192" height="192" rx="16" opacity="0.2" fill="currentColor"/><circle cx="60" cy="60" r="12" fill="currentColor"/><circle cx="128" cy="60" r="12" fill="currentColor"/><circle cx="196" cy="60" r="12" fill="currentColor"/><circle cx="60" cy="128" r="12" fill="currentColor"/><circle cx="128" cy="128" r="12" fill="currentColor"/><circle cx="196" cy="128" r="12" fill="currentColor"/><circle cx="60" cy="196" r="12" fill="currentColor"/><circle cx="128" cy="196" r="12" fill="currentColor"/><circle cx="196" cy="196" r="12" fill="currentColor"/></>,
 };
 
 export const DotsNineIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

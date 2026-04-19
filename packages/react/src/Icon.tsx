@@ -22,6 +22,7 @@ export const Icon = forwardRef<SVGSVGElement, InternalIconProps>(function Icon(
 
   const mergedClassName = ['phosphor-animated-icon', className].filter(Boolean).join(' ');
   const mergedStyle = {
+    color: resolved.color,
     ...(resolved.mirrored ? { transform: 'scaleX(-1)' } : {}),
     ...style,
   };
@@ -34,10 +35,9 @@ export const Icon = forwardRef<SVGSVGElement, InternalIconProps>(function Icon(
       width={resolved.size}
       height={resolved.size}
       fill="none"
-      stroke={resolved.color}
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={16}
       className={mergedClassName}
       style={mergedStyle}
       role={alt ? 'img' : undefined}
