@@ -21,7 +21,7 @@
   "sideEffects": ["**/*.css"],
   "scripts": {
     "generate": "node scripts/generate.mjs",
-    "test": "node --test 'scripts/test/**/*.test.mjs'",
+    "test": "node --test scripts/test/*.test.mjs",
     "build": "tsup",
     "clean": "rm -rf dist"
   },
