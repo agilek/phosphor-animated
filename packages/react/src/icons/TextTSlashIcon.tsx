@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><polyline points="105.79 56 200 56 200 88" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><polyline points="56 88 56 56 62.55 56" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+  light: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><polyline points="105.79 56 200 56 200 88" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><polyline points="56 88 56 56 62.55 56" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+  regular: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><polyline points="105.79 56 200 56 200 88" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><polyline points="56 88 56 56 62.55 56" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+  bold: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><polyline points="116.6 56 200 56 200 88" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><polyline points="56 88 56 56 62.55 56" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+  fill: <></>,
+  duotone: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><polyline points="105.79 56 200 56 200 88" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><polyline points="56 88 56 56 62.55 56" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+};
+
+export const TextTSlashIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

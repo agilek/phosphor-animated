@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><rect x="152" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><rect x="48" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/></>,
+  light: <><rect x="152" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><rect x="48" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/></>,
+  regular: <><rect x="152" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><rect x="48" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/></>,
+  bold: <><rect x="152" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><rect x="48" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/></>,
+  fill: <></>,
+  duotone: <><rect x="152" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><rect x="48" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/></>,
+};
+
+export const PauseIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.8s"}}/></>,
+  light: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.8s"}}/></>,
+  regular: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.8s"}}/></>,
+  bold: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.8s"}}/></>,
+  fill: <></>,
+  duotone: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M133.84,86.86l52.5-52.5A8,8,0,0,1,200,40V159.63" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M198.13,205.14A8,8,0,0,1,192,208H32a8,8,0,0,1-5.66-13.66l84.83-84.83" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+};
+
+export const CellSignalSlashIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

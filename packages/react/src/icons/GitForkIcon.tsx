@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M64,88v24a16,16,0,0,0,16,16h96a16,16,0,0,0,16-16V88" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="64" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="192" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="192" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><path d="M64,88v24a16,16,0,0,0,16,16h96a16,16,0,0,0,16-16V88" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="64" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="192" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="192" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><path d="M64,88v24a16,16,0,0,0,16,16h96a16,16,0,0,0,16-16V88" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="64" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="192" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="192" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><path d="M64,88v24a16,16,0,0,0,16,16h96a16,16,0,0,0,16-16V88" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="64" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="192" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="192" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M64,88v24a16,16,0,0,0,16,16h96a16,16,0,0,0,16-16V88" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="64" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="192" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="192" cy="64" r="24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const GitForkIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

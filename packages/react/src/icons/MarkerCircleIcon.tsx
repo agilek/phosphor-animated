@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M176,211.16V176a8,8,0,0,0-8-8H88a8,8,0,0,0-8,8v35.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M96,168V144a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M147.84,136l-12-57.63c-1.77-8.49-13.89-8.49-15.66,0l-12,57.63" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  light: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M176,211.16V176a8,8,0,0,0-8-8H88a8,8,0,0,0-8,8v35.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M96,168V144a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M147.84,136l-12-57.63c-1.77-8.49-13.89-8.49-15.66,0l-12,57.63" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  regular: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M176,211.16V176a8,8,0,0,0-8-8H88a8,8,0,0,0-8,8v35.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M96,168V144a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M147.84,136l-12-57.63c-1.77-8.49-13.89-8.49-15.66,0l-12,57.63" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  bold: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M176,211.16V176a8,8,0,0,0-8-8H88a8,8,0,0,0-8,8v35.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M96,168V136a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M147.84,128,135.71,84.44a8,8,0,0,0-15.42,0L108.16,128Z" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  fill: <></>,
+  duotone: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M176,211.16V176a8,8,0,0,0-8-8H88a8,8,0,0,0-8,8v35.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M96,168V144a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v24" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M147.84,136l-12-57.63c-1.77-8.49-13.89-8.49-15.66,0l-12,57.63" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+};
+
+export const MarkerCircleIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

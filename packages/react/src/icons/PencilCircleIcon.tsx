@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="176 211.16 176 176 128 72 80 176 80 211.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,192a24,24,0,0,1,48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M128,224V192a24,24,0,0,0-48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="176 211.16 176 176 128 72 80 176 80 211.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,192a24,24,0,0,1,48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M128,224V192a24,24,0,0,0-48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="176 211.16 176 176 128 72 80 176 80 211.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,192a24,24,0,0,1,48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M128,224V192a24,24,0,0,0-48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="176 211.16 176 176 128 72 80 176 80 211.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,200a24,24,0,0,1,48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M128,224V200a24,24,0,0,0-48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="176 211.16 176 176 128 72 80 176 80 211.16" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,192a24,24,0,0,1,48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M128,224V192a24,24,0,0,0-48,0" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const PencilCircleIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M216,104a56,56,0,0,0-112,0c0,48.1-25.64,84-82.27,100.7-8.11,2.39-7.43,14.11.9,15.58C88,231.84,216,222.48,216,104Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="105.17 92.58 128 104 160 88 192 104 214.84 92.58" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,16a32,32,0,0,1,32,32" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  light: <><path d="M216,104a56,56,0,0,0-112,0c0,48.1-25.64,84-82.27,100.7-8.11,2.39-7.43,14.11.9,15.58C88,231.84,216,222.48,216,104Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="105.17 92.58 128 104 160 88 192 104 214.84 92.58" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,16a32,32,0,0,1,32,32" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  regular: <><path d="M216,104a56,56,0,0,0-112,0c0,48.1-25.64,84-82.27,100.7-8.11,2.39-7.43,14.11.9,15.58C88,231.84,216,222.48,216,104Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="105.17 92.58 128 104 160 88 192 104 214.84 92.58" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,16a32,32,0,0,1,32,32" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  bold: <><path d="M216,104a56,56,0,0,0-112,0c0,48.1-25.64,84-82.27,100.7-8.11,2.39-7.43,14.11.9,15.58C88,231.84,216,222.48,216,104Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="105.17 92.58 128 104 160 88 192 104 214.84 92.58" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,16a32,32,0,0,1,32,32" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M216,104a56,56,0,0,0-112,0c0,48.1-25.64,84-82.27,100.7-8.11,2.39-7.43,14.11.9,15.58C88,231.84,216,222.48,216,104Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="105.17 92.58 128 104 160 88 192 104 214.84 92.58" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,16a32,32,0,0,1,32,32" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+};
+
+export const PepperIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

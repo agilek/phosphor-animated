@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M224,120a96,96,0,0,0-192,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="224 120 128 192 32 120" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M128,192,88,120c0-72,40-96,40-96s40,24,40,96Z" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><path d="M224,120a96,96,0,0,0-192,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="224 120 128 192 32 120" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M128,192,88,120c0-72,40-96,40-96s40,24,40,96Z" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><path d="M224,120a96,96,0,0,0-192,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="224 120 128 192 32 120" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M128,192,88,120c0-72,40-96,40-96s40,24,40,96Z" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><path d="M224,120a96,96,0,0,0-192,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="224 120 128 192 32 120" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M88,120c0-72,40-96,40-96s40,24,40,96" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M224,120a96,96,0,0,0-192,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="224 120 128 192 32 120" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M128,192,88,120c0-72,40-96,40-96s40,24,40,96Z" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const ParachuteIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

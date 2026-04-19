@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="120" cy="184" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M88,48a32,32,0,0,1,64,0v90a56,56,0,1,1-64,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M184,76.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M184,108.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="120" cy="184" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M88,48a32,32,0,0,1,64,0v90a56,56,0,1,1-64,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M184,76.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M184,108.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="120" cy="184" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M88,48a32,32,0,0,1,64,0v90a56,56,0,1,1-64,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M184,76.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M184,108.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M68,154.78V56a40,40,0,0,1,80,0v98.77h0a52,52,0,1,1-80,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M184,76.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M184,116.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  fill: <></>,
+  duotone: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="120" cy="184" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M88,48a32,32,0,0,1,64,0v90a56,56,0,1,1-64,0Z" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M184,76.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M184,108.4c22.91-14.92,33.09,14.12,56-.8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const ThermometerHotIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

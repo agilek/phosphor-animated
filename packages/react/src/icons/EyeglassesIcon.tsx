@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><circle cx="68" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="188" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M32,164V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M200,48a24,24,0,0,1,24,24v92" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><circle cx="68" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="188" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M32,164V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M200,48a24,24,0,0,1,24,24v92" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><circle cx="68" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="188" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M32,164V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M200,48a24,24,0,0,1,24,24v92" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><circle cx="68" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="188" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M32,164V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M200,48a24,24,0,0,1,24,24v92" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><circle cx="68" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="188" cy="164" r="36" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M32,164V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M200,48a24,24,0,0,1,24,24v92" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const EyeglassesIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

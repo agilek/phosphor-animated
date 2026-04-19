@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M88,207.3A96,96,0,0,1,32,120H224a96,96,0,0,1-56,87.3V216a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M168,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M88,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  light: <><path d="M88,207.3A96,96,0,0,1,32,120H224a96,96,0,0,1-56,87.3V216a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M168,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M88,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  regular: <><path d="M88,207.3A96,96,0,0,1,32,120H224a96,96,0,0,1-56,87.3V216a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M168,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M88,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  bold: <><path d="M88,207.3A96,96,0,0,1,32,120H224a96,96,0,0,1-56,87.3V216a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M172,84s-18-5.2,0-26,0-26,0-26" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,84s-18-5.2,0-26,0-26,0-26" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M84,84s-18-5.2,0-26,0-26,0-26" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M88,207.3A96,96,0,0,1,32,120H224a96,96,0,0,1-56,87.3V216a8,8,0,0,1-8,8H96a8,8,0,0,1-8-8Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M168,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M128,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M88,88s-18-5.6,0-28,0-28,0-28" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+};
+
+export const BowlSteamIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

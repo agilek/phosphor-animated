@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M80,160H208a8,8,0,0,0,8-8V48a8,8,0,0,0-8-8H96a8,8,0,0,0-8,8v8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="104 136 80 160 104 184" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M176,96H48a8,8,0,0,0-8,8V208a8,8,0,0,0,8,8H160a8,8,0,0,0,8-8v-8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><polyline points="152 120 176 96 152 72" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  light: <><path d="M80,160H208a8,8,0,0,0,8-8V48a8,8,0,0,0-8-8H96a8,8,0,0,0-8,8v8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="104 136 80 160 104 184" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M176,96H48a8,8,0,0,0-8,8V208a8,8,0,0,0,8,8H160a8,8,0,0,0,8-8v-8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><polyline points="152 120 176 96 152 72" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  regular: <><path d="M80,160H208a8,8,0,0,0,8-8V48a8,8,0,0,0-8-8H96a8,8,0,0,0-8,8v8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="104 136 80 160 104 184" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M176,96H48a8,8,0,0,0-8,8V208a8,8,0,0,0,8,8H160a8,8,0,0,0,8-8v-8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><polyline points="152 120 176 96 152 72" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  bold: <><path d="M84,160H208a8,8,0,0,0,8-8V48a8,8,0,0,0-8-8H96a8,8,0,0,0-8,8v4" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="104 140 84 160 104 180" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M172,96H48a8,8,0,0,0-8,8V208a8,8,0,0,0,8,8H160a8,8,0,0,0,8-8v-4" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><polyline points="152 116 172 96 152 76" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M80,160H208a8,8,0,0,0,8-8V48a8,8,0,0,0-8-8H96a8,8,0,0,0-8,8v8" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="104 136 80 160 104 184" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M176,96H48a8,8,0,0,0-8,8V208a8,8,0,0,0,8,8H160a8,8,0,0,0,8-8v-8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><polyline points="152 120 176 96 152 72" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+};
+
+export const SwapIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

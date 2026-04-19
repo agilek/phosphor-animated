@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><polygon points="184 198.54 213.67 216 205.6 183.41 232 161.61 197.35 158.94 184 128 170.65 158.94 136 161.61 162.4 183.41 154.33 216 184 198.54" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  light: <><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><polygon points="184 198.54 213.67 216 205.6 183.41 232 161.61 197.35 158.94 184 128 170.65 158.94 136 161.61 162.4 183.41 154.33 216 184 198.54" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  regular: <><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><polygon points="184 198.54 213.67 216 205.6 183.41 232 161.61 197.35 158.94 184 128 170.65 158.94 136 161.61 162.4 183.41 154.33 216 184 198.54" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  bold: <><path d="M98.39,46.69,128,80H32V52a8,8,0,0,1,8-8H92.41A8,8,0,0,1,98.39,46.69Z" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M112.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><polygon points="184 198.54 213.67 216 205.6 183.41 232 161.61 197.35 158.94 184 128 170.65 158.94 136 161.61 162.4 183.41 154.33 216 184 198.54" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><polygon points="184 198.54 213.67 216 205.6 183.41 232 161.61 197.35 158.94 184 128 170.65 158.94 136 161.61 162.4 183.41 154.33 216 184 198.54" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/></>,
+};
+
+export const FolderStarIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

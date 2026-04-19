@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><rect x="108" y="100" width="128" height="56" rx="8" transform="translate(300 -44) rotate(90)" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><rect x="56" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><rect x="108" y="100" width="128" height="56" rx="8" transform="translate(300 -44) rotate(90)" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><rect x="56" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><rect x="108" y="100" width="128" height="56" rx="8" transform="translate(300 -44) rotate(90)" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><rect x="56" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><rect x="112" y="100" width="128" height="56" rx="8" transform="translate(304 -48) rotate(90)" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><rect x="52" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><rect x="108" y="100" width="128" height="56" rx="8" transform="translate(300 -44) rotate(90)" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><rect x="56" y="40" width="56" height="176" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const AlignCenterVerticalIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

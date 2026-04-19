@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M88,76V44a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M128,60a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M168,120v-4a20,20,0,0,1,40,0v36a80,80,0,0,1-160,0V76a20,20,0,0,1,40,0v36" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M80,168s16-32,48-32,48,32,48,32-16,32-48,32S80,168,80,168Z" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  light: <><path d="M88,76V44a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M128,60a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M168,120v-4a20,20,0,0,1,40,0v36a80,80,0,0,1-160,0V76a20,20,0,0,1,40,0v36" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M80,168s16-32,48-32,48,32,48,32-16,32-48,32S80,168,80,168Z" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  regular: <><path d="M88,76V44a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M128,60a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M168,120v-4a20,20,0,0,1,40,0v36a80,80,0,0,1-160,0V76a20,20,0,0,1,40,0v36" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M80,168s16-32,48-32,48,32,48,32-16,32-48,32S80,168,80,168Z" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  bold: <><path d="M88,76V44a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M128,60a20,20,0,0,1,40,0v52" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M168,112a20,20,0,0,1,40,0v40a80,80,0,0,1-160,0V76a20,20,0,0,1,40,0v36" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M88.8,164a44,44,0,0,1,78.4,0" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M88,76V44a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M128,60a20,20,0,0,1,40,0v60" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M168,120v-4a20,20,0,0,1,40,0v36a80,80,0,0,1-160,0V76a20,20,0,0,1,40,0v36" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M80,168s16-32,48-32,48,32,48,32-16,32-48,32S80,168,80,168Z" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+};
+
+export const HandEyeIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

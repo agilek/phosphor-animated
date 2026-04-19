@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="128" cy="80" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="176" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="176" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><circle cx="80" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+  light: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="128" cy="80" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="176" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="176" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><circle cx="80" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+  regular: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="128" cy="80" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="176" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="176" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><circle cx="80" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+  bold: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/></>,
+  fill: <></>,
+  duotone: <><circle cx="128" cy="128" r="96" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><circle cx="128" cy="80" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="128" cy="176" r="16" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><circle cx="176" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/><circle cx="80" cy="128" r="16" className="draw-line" pathLength={1} style={{animationDelay:"1.5s"}}/></>,
+};
+
+export const FilmReelIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

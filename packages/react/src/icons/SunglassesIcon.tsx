@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M104,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M224,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,48a24,24,0,0,1,24,24v64H32V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><path d="M104,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M224,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,48a24,24,0,0,1,24,24v64H32V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><path d="M104,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M224,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,48a24,24,0,0,1,24,24v64H32V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><path d="M104,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M224,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,48a24,24,0,0,1,24,24v64H32V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M104,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M224,136v28a36,36,0,0,1-72,0V136" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,48a24,24,0,0,1,24,24v64H32V72A24,24,0,0,1,56,48" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const SunglassesIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

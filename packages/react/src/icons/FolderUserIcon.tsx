@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><path d="M160,224c3.67-13.8,16.6-24,32-24s28.33,10.2,32,24" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="192" cy="176" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  light: <><path d="M160,224c3.67-13.8,16.6-24,32-24s28.33,10.2,32,24" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="192" cy="176" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  regular: <><circle cx="192" cy="176" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><path d="M160,224c3.67-13.8,16.6-24,32-24s28.33,10.2,32,24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  bold: <><path d="M160,224c3.67-13.8,16.6-24,32-24s28.33,10.2,32,24" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="192" cy="176" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M112.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v20" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M98.39,46.69,128,80H32V52a8,8,0,0,1,8-8H92.41A8,8,0,0,1,98.39,46.69Z" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+  fill: <></>,
+  duotone: <><path d="M160,224c3.67-13.8,16.6-24,32-24s28.33,10.2,32,24" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><circle cx="192" cy="176" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M32,80V56a8,8,0,0,1,8-8H92.69a8,8,0,0,1,5.65,2.34L128,80" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><path d="M120.56,208H39.38A7.4,7.4,0,0,1,32,200.62V80H216a8,8,0,0,1,8,8v32" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/></>,
+};
+
+export const FolderUserIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><rect x="32" y="48" width="192" height="160" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="96" cy="120" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M64,168c3.55-13.8,17.09-24,32-24s28.46,10.19,32,24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><rect x="32" y="48" width="192" height="160" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="96" cy="120" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M64,168c3.55-13.8,17.09-24,32-24s28.46,10.19,32,24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><rect x="32" y="48" width="192" height="160" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="96" cy="120" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M64,168c3.55-13.8,17.09-24,32-24s28.46,10.19,32,24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><rect x="32" y="48" width="192" height="160" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="100" cy="120" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M69.34,164c4.91-11.73,17.23-20,30.66-20s25.75,8.26,30.66,20" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><line className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><rect x="32" y="48" width="192" height="160" rx="8" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><circle cx="96" cy="120" r="24" className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><path d="M64,168c3.55-13.8,17.09-24,32-24s28.46,10.19,32,24" className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const IdentificationCardIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

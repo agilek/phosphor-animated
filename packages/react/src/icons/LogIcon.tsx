@@ -1,0 +1,14 @@
+import '../styles.css';
+import { Icon, type IconWeights } from '../Icon';
+import type { IconProps } from '../types';
+
+const WEIGHTS: IconWeights = {
+  thin: <><ellipse cx="200" cy="136" rx="40" ry="64" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="96 72 136 32 168 32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,200H56c-22.09,0-40-28.65-40-64S33.91,72,56,72H200" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  light: <><ellipse cx="200" cy="136" rx="40" ry="64" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="96 72 136 32 168 32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,200H56c-22.09,0-40-28.65-40-64S33.91,72,56,72H200" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  regular: <><ellipse cx="200" cy="136" rx="40" ry="64" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="96 72 136 32 168 32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,200H56c-22.09,0-40-28.65-40-64S33.91,72,56,72H200" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  bold: <><ellipse cx="200" cy="136" rx="40" ry="64" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="96 72 136 32 168 32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,200H56c-22.09,0-40-28.65-40-64S33.91,72,56,72H200" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+  fill: <></>,
+  duotone: <><ellipse cx="200" cy="136" rx="40" ry="64" className="draw-line" pathLength={1} style={{animationDelay:"0s"}}/><polyline points="96 72 136 32 168 32" className="draw-line" pathLength={1} style={{animationDelay:"0.3s"}}/><path d="M200,200H56c-22.09,0-40-28.65-40-64S33.91,72,56,72H200" className="draw-line" pathLength={1} style={{animationDelay:"0.6s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"0.9s"}}/><line className="draw-line" pathLength={1} style={{animationDelay:"1.2s"}}/></>,
+};
+
+export const LogIcon = (props: IconProps) => <Icon weights={WEIGHTS} {...props} />;

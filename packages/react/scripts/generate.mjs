@@ -124,3 +124,83 @@ export function buildStylesCss({ duration, easing }) {
 }
 `;
 }
+
+import { readFile, writeFile, mkdir, readdir, rm } from 'node:fs/promises';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const WEIGHTS = ['thin', 'light', 'regular', 'bold', 'fill', 'duotone'];
+
+function weightFileName(name, weight) {
+  return weight === 'regular' ? `${name}.svg` : `${name}-${weight}.svg`;
+}
+
+async function loadManifest(manifestPath) {
+  const src = await readFile(manifestPath, 'utf8');
+  const entries = [];
+  const itemRe = /name:\s*"([^"]+)",\s*pascal_name:\s*"([^"]+)"/g;
+  let m;
+  while ((m = itemRe.exec(src)) !== null) {
+    entries.push({ name: m[1], pascalName: m[2] });
+  }
+  return entries;
+}
+
+async function main() {
+  const here = dirname(fileURLToPath(import.meta.url));
+  const rootDir = join(here, '..', '..', '..');
+  const rawAnimatedDir = join(rootDir, 'core-main', 'raw-animated');
+  const manifestPath = join(rootDir, 'core-main', 'src', 'icons.ts');
+  const outIconsDir = join(here, '..', 'src', 'icons');
+  const outIndexPath = join(here, '..', 'src', 'index.ts');
+  const outStylesPath = join(here, '..', 'src', 'styles.css');
+
+  const manifest = await loadManifest(manifestPath);
+  if (!manifest.length) throw new Error('Manifest is empty — check path: ' + manifestPath);
+
+  const sampleSvg = await readFile(join(rawAnimatedDir, 'regular', 'acorn.svg'), 'utf8');
+  const params = extractAnimationParams(sampleSvg);
+
+  await rm(outIconsDir, { recursive: true, force: true });
+  await mkdir(outIconsDir, { recursive: true });
+
+  let processed = 0;
+  let skipped = 0;
+  for (const { name, pascalName } of manifest) {
+    const weightsJsx = {};
+    let missing = false;
+    for (const weight of WEIGHTS) {
+      const svgPath = join(rawAnimatedDir, weight, weightFileName(name, weight));
+      try {
+        const svg = await readFile(svgPath, 'utf8');
+        weightsJsx[weight] = extractAnimatedJsx(svg);
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          console.warn(`✗ ${name}: missing ${weight} weight at ${svgPath}`);
+          missing = true;
+          break;
+        }
+        throw err;
+      }
+    }
+    if (missing) { skipped++; continue; }
+    await writeFile(join(outIconsDir, `${pascalName}Icon.tsx`), buildIconModule(pascalName, weightsJsx));
+    processed++;
+  }
+
+  const files = await readdir(outIconsDir);
+  const pascalNames = files
+    .filter((f) => f.endsWith('Icon.tsx'))
+    .map((f) => f.replace(/Icon\.tsx$/, ''));
+  await writeFile(outIndexPath, buildIndex(pascalNames));
+  await writeFile(outStylesPath, buildStylesCss(params));
+
+  console.log(`✓ generated ${processed} icon components, skipped ${skipped}`);
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
