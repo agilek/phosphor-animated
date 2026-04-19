@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+import { readdir } from 'node:fs/promises';
+import { join, relative } from 'node:path';
+
 export function parseDuration(str) {
   const m = String(str).trim().match(/^(\d+(?:\.\d+)?)(ms|s)?$/);
   if (!m) throw new Error(`Invalid duration: ${JSON.stringify(str)}`);
@@ -91,4 +94,16 @@ export function transformSvg(input, cfg) {
   const output =
     rewritten.slice(0, insertAt) + buildStyleBlock(cfg) + rewritten.slice(insertAt);
   return { output, count: index };
+}
+
+export async function* walkSvgs(root, current = root) {
+  const entries = await readdir(current, { withFileTypes: true });
+  for (const entry of entries) {
+    const absPath = join(current, entry.name);
+    if (entry.isDirectory()) {
+      yield* walkSvgs(root, absPath);
+    } else if (entry.isFile() && entry.name.endsWith('.svg')) {
+      yield { absPath, relPath: relative(root, absPath) };
+    }
+  }
 }
