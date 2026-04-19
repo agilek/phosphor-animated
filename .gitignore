@@ -1,5 +1,8 @@
 node_modules/
+dist/
+.turbo/
 *.log
 .DS_Store
 out/
-core-main/
+core-main/node_modules/
+core-main/dist/

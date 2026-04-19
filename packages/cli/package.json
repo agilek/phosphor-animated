@@ -1,0 +1,22 @@
+{
+  "name": "@agilek/phosphor-animated-cli",
+  "version": "0.1.0",
+  "description": "Convert static SVG icons to animated line-draw SVGs.",
+  "type": "module",
+  "bin": {
+    "phosphor-animated": "./animate.js"
+  },
+  "scripts": {
+    "test": "node --test 'test/**/*.test.js'"
+  },
+  "files": [
+    "animate.js",
+    "README.md"
+  ],
+  "keywords": ["svg", "animation", "line-draw", "phosphor", "icons"],
+  "author": "Michał Acler",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

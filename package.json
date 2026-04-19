@@ -1,15 +1,17 @@
 {
-  "name": "phosphor-animated",
-  "version": "0.1.0",
-  "description": "Convert static Phosphor SVG icons to animated line-draw SVGs.",
+  "name": "phosphor-animated-monorepo",
+  "version": "0.0.0",
+  "private": true,
   "type": "module",
-  "bin": {
-    "phosphor-animated": "./animate.js"
-  },
+  "description": "Animated Phosphor icons — CLI, React library, and demo.",
   "scripts": {
-    "test": "node --test 'test/**/*.test.js'"
+    "test": "pnpm -r --if-present test",
+    "build": "pnpm --filter @agilek/phosphor-animated build && pnpm --filter @agilek/phosphor-animated-demo build",
+    "generate": "node packages/cli/animate.js core-main/raw core-main/raw-animated && node packages/react/scripts/generate.mjs",
+    "demo:dev": "pnpm --filter @agilek/phosphor-animated-demo dev"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20",
+    "pnpm": ">=8"
   }
 }
