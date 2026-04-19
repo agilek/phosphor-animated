@@ -85,3 +85,20 @@ test('buildIconModule: wraps weights in a component export', () => {
   assert.match(out, /import '\.\.\/styles\.css';/);
   assert.match(out, /regular: <><path d="M2,2"\/><\/>/);
 });
+
+import { buildIndex, buildStylesCss } from '../generate.mjs';
+
+test('buildIndex: exports all icons and the public API', () => {
+  const out = buildIndex(['Acorn', 'AddressBook']);
+  assert.match(out, /export \{ IconContext \} from '\.\/IconContext';/);
+  assert.match(out, /export type \{ IconProps, IconWeight, IconContextValue \} from '\.\/types';/);
+  assert.match(out, /export \{ AcornIcon \} from '\.\/icons\/AcornIcon';/);
+  assert.match(out, /export \{ AddressBookIcon \} from '\.\/icons\/AddressBookIcon';/);
+});
+
+test('buildStylesCss: substitutes duration and easing', () => {
+  const out = buildStylesCss({ duration: '2s', easing: 'linear' });
+  assert.match(out, /\.phosphor-animated-icon:hover \.draw-line/);
+  assert.match(out, /animation: phosphor-draw-in 2s linear forwards;/);
+  assert.match(out, /@keyframes phosphor-draw-in/);
+});
