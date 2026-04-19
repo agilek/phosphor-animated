@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { readdir } from 'node:fs/promises';
-import { join, relative } from 'node:path';
+import { readdir, readFile, writeFile, mkdir, stat } from 'node:fs/promises';
+import { join, relative, dirname } from 'node:path';
 
 export function parseDuration(str) {
   const m = String(str).trim().match(/^(\d+(?:\.\d+)?)(ms|s)?$/);
@@ -106,4 +106,42 @@ export async function* walkSvgs(root, current = root) {
       yield { absPath, relPath: relative(root, absPath) };
     }
   }
+}
+
+export async function main(argv) {
+  const cfg = parseArgs(argv);
+  try {
+    const s = await stat(cfg.inputDir);
+    if (!s.isDirectory()) throw new Error(`Not a directory: ${cfg.inputDir}`);
+  } catch (err) {
+    if (err.code === 'ENOENT') throw new Error(`Input directory not found: ${cfg.inputDir}`);
+    throw err;
+  }
+  await mkdir(cfg.outputDir, { recursive: true });
+
+  let processed = 0;
+  let skipped = 0;
+  for await (const { absPath, relPath } of walkSvgs(cfg.inputDir)) {
+    const outPath = join(cfg.outputDir, relPath);
+    try {
+      const input = await readFile(absPath, 'utf8');
+      const { output, count } = transformSvg(input, cfg);
+      await mkdir(dirname(outPath), { recursive: true });
+      await writeFile(outPath, output);
+      console.log(`✓ ${relPath} (${count} elements animated)`);
+      processed++;
+    } catch (err) {
+      console.log(`✗ ${relPath} (${err.message})`);
+      skipped++;
+    }
+  }
+  return { processed, skipped };
+}
+
+// Run main() only when this file is invoked directly (not when imported by tests).
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main(process.argv.slice(2)).catch((err) => {
+    console.error(err.message);
+    process.exit(1);
+  });
 }
