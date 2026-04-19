@@ -11,3 +11,4 @@ core-main/*
 !core-main/src/
 !core-main/LICENSE
 !core-main/README.md
+apps/demo/src/icons-manifest.ts
