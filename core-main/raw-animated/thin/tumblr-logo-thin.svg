@@ -8,7 +8,7 @@
       animation: phosphor-draw-in 1.5s ease-in-out infinite alternate;
     }
     @keyframes phosphor-draw-in {
-      0%   { stroke-dashoffset: 2000; }
-      100% { stroke-dashoffset: 0; }
+      0%   { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 2000; }
     }
   </style><rect width="256" height="256" fill="none"/><path d="M192,184v48H152a56,56,0,0,1-56-56V112H64V72h0a48,48,0,0,0,48-48h32V72h48v40H144v56a16,16,0,0,0,16,16Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" class="draw-line" pathLength="1" style="animation-delay: 0s"/></svg>
