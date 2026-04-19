@@ -11,13 +11,17 @@ export function parseArgs(argv) {
   const positional = [];
   const opts = { duration: 1.5, stagger: 0.3, easing: 'ease-in-out' };
   for (let i = 0; i < argv.length; i++) {
+    const takeValue = (flag) => {
+      if (i + 1 >= argv.length) throw new Error(`Missing value for ${flag}`);
+      return argv[++i];
+    };
     const a = argv[i];
     if (a === '--duration') {
-      opts.duration = parseDuration(argv[++i]);
+      opts.duration = parseDuration(takeValue(a));
     } else if (a === '--stagger') {
-      opts.stagger = parseDuration(argv[++i]);
+      opts.stagger = parseDuration(takeValue(a));
     } else if (a === '--easing') {
-      opts.easing = argv[++i];
+      opts.easing = takeValue(a);
     } else if (a.startsWith('--')) {
       throw new Error(`Unknown flag: ${a}`);
     } else {

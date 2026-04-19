@@ -44,3 +44,15 @@ test('parseArgs: missing outputDir throws', () => {
 test('parseArgs: unknown flag throws', () => {
   assert.throws(() => parseArgs(['in', 'out', '--bogus', 'x']), /unknown flag/i);
 });
+
+test('parseArgs: --duration with no value throws', () => {
+  assert.throws(() => parseArgs(['in', 'out', '--duration']), /missing value for --duration/i);
+});
+
+test('parseArgs: --stagger with no value throws', () => {
+  assert.throws(() => parseArgs(['in', 'out', '--stagger']), /missing value for --stagger/i);
+});
+
+test('parseArgs: --easing with no value throws', () => {
+  assert.throws(() => parseArgs(['in', 'out', '--easing']), /missing value for --easing/i);
+});
