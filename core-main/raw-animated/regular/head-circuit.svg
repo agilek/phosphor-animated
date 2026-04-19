@@ -2,13 +2,10 @@
   <style>
     .draw-line {
       stroke-dasharray: 1;
-      stroke-dashoffset: 0;
-    }
-    svg:hover .draw-line {
+      stroke-dashoffset: 1;
       animation: phosphor-draw-in 1.5s ease-in-out forwards;
     }
     @keyframes phosphor-draw-in {
-      from { stroke-dashoffset: 1; }
       to { stroke-dashoffset: 0; }
     }
   </style><rect width="256" height="256" fill="none"/><circle cx="128" cy="72" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" class="draw-line" pathLength="1" style="animation-delay: 0s"/><circle cx="144" cy="136" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" class="draw-line" pathLength="1" style="animation-delay: 0.3s"/><path d="M120,216H72a8,8,0,0,1-8-8V171.81L36.42,159.18a8,8,0,0,1-3.77-10.3L56,104a80,80,0,1,1,128,64l8,64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" class="draw-line" pathLength="1" style="animation-delay: 0.6s"/><line x1="128" y1="56" x2="128" y2="24.39" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" class="draw-line" pathLength="1" style="animation-delay: 0.9s"/><polyline points="214.38 88 184 88 154.24 123.71" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" class="draw-line" pathLength="1" style="animation-delay: 1.2s"/></svg>

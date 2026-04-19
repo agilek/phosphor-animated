@@ -113,13 +113,10 @@ ${exports}
 export function buildStylesCss({ duration, easing }) {
   return `.phosphor-animated-icon .draw-line {
   stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-}
-.phosphor-animated-icon:hover .draw-line {
+  stroke-dashoffset: 1;
   animation: phosphor-draw-in ${duration} ${easing} forwards;
 }
 @keyframes phosphor-draw-in {
-  from { stroke-dashoffset: 1; }
   to { stroke-dashoffset: 0; }
 }
 `;

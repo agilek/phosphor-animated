@@ -1,4 +1,4 @@
-import { forwardRef, useContext, useState, type ReactNode, type MouseEvent } from 'react';
+import { forwardRef, useContext, type ReactNode } from 'react';
 import { IconContext } from './IconContext';
 import { DEFAULT_ICON_PROPS, type IconProps, type IconWeight } from './types';
 
@@ -9,7 +9,7 @@ interface InternalIconProps extends IconProps {
 }
 
 export const Icon = forwardRef<SVGSVGElement, InternalIconProps>(function Icon(
-  { weights, color, size, weight, mirrored, alt, className, style, onMouseEnter, ...rest },
+  { weights, color, size, weight, mirrored, alt, className, style, ...rest },
   ref,
 ) {
   const ctx = useContext(IconContext);
@@ -18,12 +18,6 @@ export const Icon = forwardRef<SVGSVGElement, InternalIconProps>(function Icon(
     size: size ?? ctx.size ?? DEFAULT_ICON_PROPS.size,
     weight: weight ?? ctx.weight ?? DEFAULT_ICON_PROPS.weight,
     mirrored: mirrored ?? ctx.mirrored ?? DEFAULT_ICON_PROPS.mirrored,
-  };
-  const [animKey, setAnimKey] = useState(0);
-
-  const handleMouseEnter = (event: MouseEvent<SVGSVGElement>) => {
-    setAnimKey((k) => k + 1);
-    onMouseEnter?.(event);
   };
 
   const mergedClassName = ['phosphor-animated-icon', className].filter(Boolean).join(' ');
@@ -35,7 +29,6 @@ export const Icon = forwardRef<SVGSVGElement, InternalIconProps>(function Icon(
   return (
     <svg
       ref={ref}
-      key={animKey}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
       width={resolved.size}
@@ -49,7 +42,6 @@ export const Icon = forwardRef<SVGSVGElement, InternalIconProps>(function Icon(
       style={mergedStyle}
       role={alt ? 'img' : undefined}
       aria-label={alt}
-      onMouseEnter={handleMouseEnter}
       {...rest}
     >
       {weights[resolved.weight]}
