@@ -116,7 +116,7 @@ export function buildStylesCss({ duration, easing }) {
   stroke-dashoffset: 0;
 }
 .phosphor-animated-icon:hover .draw-line {
-  animation: phosphor-draw-in ${duration} ${easing} infinite;
+  animation: phosphor-draw-in ${duration} ${easing} infinite alternate;
 }
 @keyframes phosphor-draw-in {
   0%   { stroke-dashoffset: 2000; }

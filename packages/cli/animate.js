@@ -51,7 +51,7 @@ function buildStyleBlock({ duration, easing }) {
       stroke-dashoffset: 0;
     }
     svg:hover .draw-line {
-      animation: phosphor-draw-in ${duration}s ${easing} infinite;
+      animation: phosphor-draw-in ${duration}s ${easing} infinite alternate;
     }
     @keyframes phosphor-draw-in {
       0%   { stroke-dashoffset: 2000; }

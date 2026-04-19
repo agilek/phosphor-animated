@@ -99,6 +99,6 @@ test('buildIndex: exports all icons and the public API', () => {
 test('buildStylesCss: substitutes duration and easing and loops infinitely on hover', () => {
   const out = buildStylesCss({ duration: '2s', easing: 'linear' });
   assert.match(out, /\.phosphor-animated-icon:hover \.draw-line/);
-  assert.match(out, /animation: phosphor-draw-in 2s linear infinite;/);
+  assert.match(out, /animation: phosphor-draw-in 2s linear infinite alternate;/);
   assert.match(out, /@keyframes phosphor-draw-in/);
 });
